@@ -1,0 +1,67 @@
+main {
+    width: 80%;
+    margin: auto;
+}
+
+.diapo{
+    position: relative;
+    overflow: hidden;
+}
+
+#nav-droite, #nav-gauche{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3em;
+}
+
+#pause {
+    position: absolute;
+    top: 95%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3em;
+    right: 50%;
+}
+
+#play {
+    position: absolute;
+    top: 95%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3em;
+    right: 45%;
+}
+
+#nav-droite{
+    right: 20px;
+}
+
+#nav-gauche{
+    left: 20px;
+}
+
+.elements {
+    display: flex;
+    transition: 0.7s;
+}
+
+.element{
+    flex: 1 0 100%;
+    position: relative;
+}
+
+ .element > img {
+        width: 100%;
+    }
+
+ .caption{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%);
+     text-align: center;
+     background-color: rgba(255,255,255,0.5);
+     padding: 30px;
+ }
