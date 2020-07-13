@@ -26,7 +26,14 @@ window.onload = () => {
 
     // Changer de slide tous les 5sec
     timer = setInterval(slideNext, 5000)
-}
+
+    // RESPONSIVE 
+    window.addEventListener("resize", () => {
+        slideWidth = diapo.getBoundingClientRect().width
+        slideNext()
+    })
+
+    }
 
 function slideNext() {
     compteur++
