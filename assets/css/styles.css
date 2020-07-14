@@ -1,6 +1,17 @@
 main {
     width: 80%;
     margin: auto;
+    font-family: ABeeZee;
+}
+
+body {
+    background: linear-gradient(50deg,#037c87 0%, #487549 80%);
+}
+
+main h1{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
 
 .diapo{
@@ -52,8 +63,9 @@ main {
     position: relative;
 }
 
- .element > img {
-        width: 100%;
+    .element > img {
+        max-width: 100%;
+        border-radius: 30px;
     }
 
 .caption {
@@ -65,6 +77,8 @@ main {
     background-color: #abba82;
     opacity: 0.7;
     padding: 30px;
+    border-radius: 30px;
+    border: thick double #037c87;
 }
 
 @media (min-width: 320px) {
