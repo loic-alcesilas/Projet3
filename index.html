@@ -15,57 +15,66 @@
      crossorigin="" />
 </head>
 <body>
-    <header class="text-center pb-5">
-        <img src="assets/img/logo.png" alt="logo" id="logo" />
-        <h1>Location de vélos libre service</h1>
+	<header class="container-fluid pb-5">
+		<div class="container text-center ">
+			<img src="assets/img/logo.png" alt="logo" id="logo" />
+	    		<h1>Location de vélos libre service</h1>
+		</div>
     </header>
+    
     <main class="container mt-5">
-        <h2 class="mb-4">Comment utiliser les vélos ?</h2>
-        <div class="diapo">
-            <div class="elements">
-                <!-- Première diapo -->
-                <div class="element">
-                    <img src="assets/img/slide1.jpg" alt="slide1">
-                    <div class="caption">
-                        <h3>slide1</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
-                    </div>
-                </div>
-                <!-- Deuxième diapo -->
-                <div class="element">
-                    <img src="assets/img/slide2.jpg" alt="slide2" />
-                    <div class="caption">
-                        <h3>slide2</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
-                    </div>
-                </div>
-                <!-- Troisième diapo-->
-                <div class="element">
-                    <img src="assets/img/slide3.jpg" alt="slide3" />
-                    <div class="caption">
-                        <h3>slide3</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
-                    </div>
-                </div>
-                <!-- Quatrième diapo-->
-                <div class="element">
-                    <img src="assets/img/slide4.jpg" alt="slide4" />
-                    <div class="caption">
-                        <h3>slide4</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
-                    </div>
-                </div>
-            </div>
-            <i id="nav-gauche" class="fas fa-chevron-left"></i>
-            <i id="nav-droite" class="fas fa-chevron-right"></i>
-            <i id="pause" class="far fa-pause-circle"></i>
-            <i id="play" class="far fa-play-circle"></i>
-        </div>
+    	<div class="row">
+    		<h2 class="mb-4 text-center col-12">Comment utiliser les vélos ?</h2>
+	        <div class="diapo col-12 p-0">
+	            <div class="elements col-12 p-0 h-100">
+	                <!-- Première diapo -->
+	                <div class="element col-12 p-0 h-100">
+	                    <img class="col-12 p-0 h-100" src="assets/img/slide1.jpg" alt="slide1">
+	                    <div class="caption col-6 p-5">
+	                        <h3>slide1</h3>
+	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+	                    </div>
+	                </div>
+	                <!-- Deuxième diapo -->
+	                <div class="element col-12 p-0 h-100">
+	                    <img class="col-12 p-0 h-100" src="assets/img/slide2.jpg" alt="slide2" />
+	                    <div class="caption col-6">
+	                        <h3>slide2</h3>
+	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+	                    </div>
+	                </div>
+	                <!-- Troisième diapo-->
+	                <div class="element col-12 p-0 h-100">
+	                    <img class="col-12 p-0 h-100" src="assets/img/slide3.jpg" alt="slide3" />
+	                    <div class="caption col-6">
+	                        <h3>slide3</h3>
+	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+	                    </div>
+	                </div>
+	                <!-- Quatrième diapo-->
+	                <div class="element col-12 p-0 h-100">
+	                    <img class="col-12 p-0 h-100" src="assets/img/slide4.jpg" alt="slide4" />
+	                    <div class="caption col-6">
+	                        <h3>slide4</h3>
+	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+	                    </div>
+	                </div>
+	            </div>
+	            <i id="nav-gauche" class="fas fa-chevron-left"></i>
+	            <i id="nav-droite" class="fas fa-chevron-right"></i>
+	            <i id="pause" class="play_controls far fa-pause-circle"></i>
+	            <i id="play" class="d-none play_controls far fa-play-circle"></i>
+	        </div>
+    	</div>
+    	<div class="row mt-4">
+    		<h2 class="text-center col-12">Louer un vélo !</h2>
+		    <div id="maCarte" class="col-12">
+		        <p>carte</p>
+		    </div>
+    	</div>
+        
     </main>
-    <!-- Carte -->
-    <div id="maCarte">
-        <p>carte</p>
-    </div>
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/scripts.js"></script>

@@ -1,26 +1,23 @@
+/*GENERALS RULS*/
 body {
     font-family: 'Poppins', sans-serif;
-}
-
-header {
-    background: linear-gradient(45deg,#bad5dc 45%, #b4b4af 100%);
 }
 
 h3{
     font-size: 20px
 }
 
-#maCarte {
-    height: 400px;
-    width: 55%;
-    margin-left: 20px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    border-radius: 10px;
+/*HEADER*/
+header {
+    background: linear-gradient(45deg,#bad5dc 45%, #b4b4af 100%);
 }
+
+
+/*DIAPORAMA*/
 .diapo {
     position: relative;
     overflow: hidden;
+    height:300px;
 }
 
 #nav-droite, #nav-gauche {
@@ -31,22 +28,14 @@ h3{
     font-size: 3em;
 }
 
-#pause {
+.play_controls {
     position: absolute;
-    top: 95%;
-    transform: translateY(-50%);
+    bottom:10px;
+    left:50%;
+    transform: translateX(-50%);
     color: white;
     font-size: 3em;
-    right: 50%;
-}
-
-#play {
-    position: absolute;
-    top: 95%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 3em;
-    right: 45%;
+    cursor: pointer;
 }
 
 #nav-droite {
@@ -67,21 +56,28 @@ h3{
     position: relative;
 }
 
-    .element > img {
-        max-width: 100%;
-        border-radius: 15px;
-    }
+.element > img {
+    max-width: 100%;
+    border-radius: 15px;
+    width:100%;
+    object-fit:cover;
+}
 
 .caption {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     background-color: #b5bab7;
     opacity: 0.7;
     padding: 30px;
     border-radius: 15px;
+}
+
+#maCarte {
+    height: 400px;
+    border-radius: 10px;
 }
 
 footer {
@@ -97,16 +93,6 @@ footer div{
     float: left;
 }
 
-.reserver {
-    margin: 10px 1px;
-    padding: 12px 30px;
-    border-radius: 3px;
-    border: none;
-    background-color: #6dbe87;
-    opacity: 0.9;
-    transform: translateY(25%);
-    text-transform: uppercase;
-}
 
 @media (min-width: 220px) {
     h1{
@@ -117,10 +103,8 @@ footer div{
         font-size: 20px;
     }
 
-    #pause {
-        top: 88%;
+    .play_controls {
         font-size: 2em;
-        right: 55%;
     }
 
     #nav-gauche{
@@ -135,26 +119,11 @@ footer div{
         font-size: 2em;
     }
 
-    #play{
-        right: 40%;
-        font-size: 2em;
-        top: 88%;
-    }
 
     .caption {
-        top: 4%;
         padding: 0px;
         width: 100%;
         font-size: 13px;
-    }
-
-    #maCarte{
-        width: 90%;
-    }
-
-    .reserver {
-        margin: 4px 1px;
-        padding: 10px 20px;
     }
 }
 
@@ -167,16 +136,8 @@ footer div{
         font-size: 30px;
     }
 
-    #pause {
-        top: 90%;
+    .play_controls {
         font-size: 2em;
-        right: 55%;
-    }
-
-    #play {
-        top: 90%;
-        font-size: 2em;
-        right: 40%;
     }
 
     #nav-droite, #nav-gauche {
@@ -184,7 +145,6 @@ footer div{
     }
 
     .caption {
-        top: 6%;
         left: 50%;
         width: 50%;
         font-size: 13px;
@@ -201,33 +161,16 @@ footer div{
         font-size: 35px;
     }
 
-    #pause {
-        right: 48%;
-    }
-
-    #play {
-        right: 41%;
-    }
-
     #nav-droite, #nav-gauche {
         font-size: 3em;
     }
 
     .caption {
-        top: 28%;
         width: 50%;
         font-size: 15px;
         padding: 25px;
     }
-
-    #maCarte{
-        width: 55%;
-    }
-
-    .reserver {
-        margin: 10px 1px;
-        padding: 12px 30px;
-    }
+}
 
 @media (min-width: 768px) {
     h1 {
@@ -242,23 +185,8 @@ footer div{
         font-size: 25px;
     }
 
-    #pause {
-        right: 50%;
-        top: 95%;
-    }
-
-    #play {
-        right: 44%;
-        top: 95%;
-    }
-
     .caption {
-        top: 37%;
         font-size: 17px;
         padding: 30px;
-    }
-
-    #maCarte{
-        width: 55%;
     }
 }
