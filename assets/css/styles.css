@@ -1,25 +1,26 @@
-main {
-    width: 80%;
-    margin: auto;
-    font-family: ABeeZee;
-}
-
+/*GENERALS RULS*/
 body {
-    background: linear-gradient(50deg,#037c87 0%, #487549 80%);
+    font-family: 'Poppins', sans-serif;
 }
 
-main h1{
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 12px;
+h3{
+    font-size: 20px
 }
 
-.diapo{
+/*HEADER*/
+header {
+    background: linear-gradient(45deg,#bad5dc 45%, #b4b4af 100%);
+}
+
+
+/*DIAPORAMA*/
+.diapo {
     position: relative;
     overflow: hidden;
+    height:300px;
 }
 
-#nav-droite, #nav-gauche{
+#nav-droite, #nav-gauche {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -27,29 +28,21 @@ main h1{
     font-size: 3em;
 }
 
-#pause {
+.play_controls {
     position: absolute;
-    top: 95%;
-    transform: translateY(-50%);
+    bottom:10px;
+    left:50%;
+    transform: translateX(-50%);
     color: white;
     font-size: 3em;
-    right: 50%;
+    cursor: pointer;
 }
 
-#play {
-    position: absolute;
-    top: 95%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 3em;
-    right: 45%;
-}
-
-#nav-droite{
+#nav-droite {
     right: 20px;
 }
 
-#nav-gauche{
+#nav-gauche {
     left: 20px;
 }
 
@@ -58,40 +51,93 @@ main h1{
     transition: 0.7s;
 }
 
-.element{
+.element {
     flex: 1 0 100%;
     position: relative;
 }
 
-    .element > img {
-        max-width: 100%;
-        border-radius: 30px;
-    }
+.element > img {
+    max-width: 100%;
+    border-radius: 15px;
+    width:100%;
+    object-fit:cover;
+}
 
 .caption {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
-    background-color: #abba82;
+    background-color: #b5bab7;
     opacity: 0.7;
     padding: 30px;
-    border-radius: 30px;
-    border: thick double #037c87;
+    border-radius: 15px;
+}
+
+#maCarte {
+    height: 400px;
+    border-radius: 10px;
+}
+
+footer {
+    background: linear-gradient(45deg,#bad5dc 45%, #b4b4af 100%);
+}
+
+footer div{
+    height: 100px;
+}
+
+#logo_footer{
+    height: 100px;
+    float: left;
+}
+
+
+@media (min-width: 220px) {
+    h1{
+        font-size: 20px;
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    .play_controls {
+        font-size: 2em;
+    }
+
+    #nav-gauche{
+        left: 3px;
+    }
+
+    #nav-droite{
+        right: 3px;
+    }
+
+    #nav-droite, #nav-gauche {
+        font-size: 2em;
+    }
+
+
+    .caption {
+        padding: 0px;
+        width: 100%;
+        font-size: 13px;
+    }
 }
 
 @media (min-width: 320px) {
-    #pause {
-        top: 90%;
-        font-size: 2em;
-        right: 55%;
+    h1 {
+        font-size: 30px;
     }
 
-    #play {
-        top: 90%;
+   h2 {
+        font-size: 30px;
+    }
+
+    .play_controls {
         font-size: 2em;
-        right: 40%;
     }
 
     #nav-droite, #nav-gauche {
@@ -99,7 +145,6 @@ main h1{
     }
 
     .caption {
-        top: 6%;
         left: 50%;
         width: 50%;
         font-size: 13px;
@@ -107,13 +152,13 @@ main h1{
     }
 }
 
-@media (min-width: 576px){
-    #pause {
-        right: 48%;
+@media (min-width: 576px) {
+    h1 {
+        font-size: 35px;
     }
 
-    #play {
-        right: 41%;
+    h2 {
+        font-size: 35px;
     }
 
     #nav-droite, #nav-gauche {
@@ -121,7 +166,6 @@ main h1{
     }
 
     .caption {
-        top: 28%;
         width: 50%;
         font-size: 15px;
         padding: 25px;
@@ -129,18 +173,19 @@ main h1{
 }
 
 @media (min-width: 768px) {
-    #pause {
-        right: 50%;
-        top: 95%;
+    h1 {
+        font-size: 45px;
     }
 
-    #play {
-        right: 44%;
-        top: 95%;
+    h2 {
+        font-size: 45px;
     }
 
-    .caption{
-        top: 37%;
+    h3{
+        font-size: 25px;
+    }
+
+    .caption {
         font-size: 17px;
         padding: 30px;
     }

@@ -54,9 +54,13 @@ function slidePrev() {
 }
 
 function slidePause() {
-    clearInterval(timer)
+    //ajouter la classe d-none à #pause
+    // retirer la classe d-none à #play
+    clearInterval(timer);
 }
 
 function slidePlay() {
+    //retirer la classe d-none à #pause
+    // ajouter la classe d-none à #play
     timer = setInterval(slideNext, 5000)
 }
