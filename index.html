@@ -6,20 +6,28 @@
     <script src="https://kit.fontawesome.com/187226f4bc.js" crossorigin="anonymous"></script>
     <meta name="description" content="" />
     <link rel="icon" href="assets/img/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+     crossorigin="" />
 </head>
 <body>
-    <main>
+    <header class="text-center pb-5">
         <img src="assets/img/logo.png" alt="logo" id="logo" />
-        <h1>Fonctionnement du site</h1>
+        <h1>Location de vélos libre service</h1>
+    </header>
+    <main class="container mt-5">
+        <h2 class="mb-4">Comment utiliser les vélos ?</h2>
         <div class="diapo">
             <div class="elements">
                 <!-- Première diapo -->
                 <div class="element">
                     <img src="assets/img/slide1.jpg" alt="slide1">
                     <div class="caption">
-                        <h2>slide1</h2>
+                        <h3>slide1</h3>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
                     </div>
                 </div>
@@ -27,7 +35,7 @@
                 <div class="element">
                     <img src="assets/img/slide2.jpg" alt="slide2" />
                     <div class="caption">
-                        <h2>slide2</h2>
+                        <h3>slide2</h3>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
                     </div>
                 </div>
@@ -35,7 +43,7 @@
                 <div class="element">
                     <img src="assets/img/slide3.jpg" alt="slide3" />
                     <div class="caption">
-                        <h2>slide3</h2>
+                        <h3>slide3</h3>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
                     </div>
                 </div>
@@ -43,7 +51,7 @@
                 <div class="element">
                     <img src="assets/img/slide4.jpg" alt="slide4" />
                     <div class="caption">
-                        <h2>slide4</h2>
+                        <h3>slide4</h3>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
                     </div>
                 </div>
@@ -54,6 +62,29 @@
             <i id="play" class="far fa-play-circle"></i>
         </div>
     </main>
+    <!-- Carte -->
+    <div id="maCarte">
+        <p>carte</p>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <script> 
+        var carte = L.map('maCarte').setView([51.505, -0.09], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+            minZoom: 1,
+            maxZoom: 20
+        }).addTo(carte);
+    </script>
+    <footer>
+        <div class="text-center">
+            <img src="assets/img/logo.png" alt="logo" id="logo_footer" />
+            <input class="reserver" type="button" name="" value="Réserver" />
+        </div>
+    </footer>
 </body>
 </html>
