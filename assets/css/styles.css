@@ -3,9 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-h3{
-    font-size: 20px
-}
+
 
 /*HEADER*/
 header {
@@ -21,15 +19,14 @@ header {
 }
 
 #nav-droite, #nav-gauche {
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     color: white;
     font-size: 3em;
+    cursor: pointer;
 }
 
 .play_controls {
-    position: absolute;
     bottom:10px;
     left:50%;
     transform: translateX(-50%);
@@ -47,13 +44,11 @@ header {
 }
 
 .elements {
-    display: flex;
     transition: 0.7s;
 }
 
 .element {
     flex: 1 0 100%;
-    position: relative;
 }
 
 .element > img {
@@ -64,11 +59,9 @@ header {
 }
 
 .caption {
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
     background-color: #b5bab7;
     opacity: 0.7;
     padding: 30px;
@@ -90,17 +83,16 @@ footer div{
 
 #logo_footer{
     height: 100px;
-    float: left;
 }
 
 
 @media (min-width: 220px) {
     h1{
-        font-size: 20px;
+        font-size: 1em;
     }
 
     h2{
-        font-size: 20px;
+        font-size: 1em;
     }
 
     .play_controls {
@@ -129,11 +121,11 @@ footer div{
 
 @media (min-width: 320px) {
     h1 {
-        font-size: 30px;
+        font-size: 1.5em;
     }
 
    h2 {
-        font-size: 30px;
+        font-size: 1.5em;
     }
 
     .play_controls {
@@ -154,11 +146,11 @@ footer div{
 
 @media (min-width: 576px) {
     h1 {
-        font-size: 35px;
+        font-size: 2em;
     }
 
     h2 {
-        font-size: 35px;
+        font-size: 2em;
     }
 
     #nav-droite, #nav-gauche {
@@ -174,15 +166,15 @@ footer div{
 
 @media (min-width: 768px) {
     h1 {
-        font-size: 45px;
+        font-size: 2.5em;
     }
 
     h2 {
-        font-size: 45px;
+        font-size: 2.5em;
     }
 
     h3{
-        font-size: 25px;
+        font-size: 2em;
     }
 
     .caption {

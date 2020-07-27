@@ -56,11 +56,17 @@ function slidePrev() {
 function slidePause() {
     //ajouter la classe d-none à #pause
     // retirer la classe d-none à #play
+    document.getElementById('pause').display = "none";
+    document.getElementById('play').display = "block";
     clearInterval(timer);
 }
 
 function slidePlay() {
     //retirer la classe d-none à #pause
     // ajouter la classe d-none à #play
+    document.getElementById('pause').display = "block";
+    document.getElementById('play').display = "none";
     timer = setInterval(slideNext, 5000)
 }
+
+

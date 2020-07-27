@@ -26,49 +26,49 @@
     	<div class="row">
     		<h2 class="mb-4 text-center col-12">Comment utiliser les vélos ?</h2>
 	        <div class="diapo col-12 p-0">
-	            <div class="elements col-12 p-0 h-100">
+	            <div class="elements d-flex col-12 p-0 h-100">
 	                <!-- Première diapo -->
-	                <div class="element col-12 p-0 h-100">
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide1.jpg" alt="slide1">
-	                    <div class="caption col-6 p-5">
+	                    <div class="caption text-center position-absolute col-6 p-0">
 	                        <h3>slide1</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
 	                <!-- Deuxième diapo -->
-	                <div class="element col-12 p-0 h-100">
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide2.jpg" alt="slide2" />
-	                    <div class="caption col-6">
+	                    <div class="caption text-center position-absolute col-6">
 	                        <h3>slide2</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
 	                <!-- Troisième diapo-->
-	                <div class="element col-12 p-0 h-100">
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide3.jpg" alt="slide3" />
-	                    <div class="caption col-6">
+	                    <div class="caption text-center position-absolute col-6">
 	                        <h3>slide3</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
 	                <!-- Quatrième diapo-->
-	                <div class="element col-12 p-0 h-100">
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide4.jpg" alt="slide4" />
-	                    <div class="caption col-6">
+	                    <div class="caption text-center position-absolute col-6">
 	                        <h3>slide4</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
 	            </div>
-	            <i id="nav-gauche" class="fas fa-chevron-left"></i>
-	            <i id="nav-droite" class="fas fa-chevron-right"></i>
-	            <i id="pause" class="play_controls far fa-pause-circle"></i>
-	            <i id="play" class="d-none play_controls far fa-play-circle"></i>
+	            <i id="nav-gauche" class="position-absolute fas fa-chevron-left"></i>
+	            <i id="nav-droite" class="position-absolute fas fa-chevron-right"></i>
+	            <i id="pause" class="position-absolute play_controls far fa-pause-circle" onclick="slidePause()"></i>
+	            <i id="play" class="d-none play_controls far fa-play-circle" onclick="slidePlay()"></i>
 	        </div>
     	</div>
     	<div class="row mt-4">
     		<h2 class="text-center col-12">Louer un vélo !</h2>
-		    <div id="maCarte" class="col-12">
+		    <div id="maCarte" class="col-12 mb-5">
 		        <p>carte</p>
 		    </div>
     	</div>
@@ -91,8 +91,7 @@
     </script>
     <footer>
         <div class="text-center">
-            <img src="assets/img/logo.png" alt="logo" id="logo_footer" />
-            <input class="reserver" type="button" name="" value="Réserver" />
+            <img class="float-left" src="assets/img/logo.png" alt="logo" id="logo_footer" />
         </div>
     </footer>
 </body>
