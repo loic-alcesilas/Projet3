@@ -56,16 +56,16 @@ function slidePrev() {
 function slidePause() {
     //ajouter la classe d-none à #pause
     // retirer la classe d-none à #play
-    document.getElementById('pause').display = "none";
-    document.getElementById('play').display = "block";
+    document.querySelector('#pause').classList.add("d-none");
+    document.querySelector('#play').classList.remove("d-none");
     clearInterval(timer);
 }
 
 function slidePlay() {
     //retirer la classe d-none à #pause
     // ajouter la classe d-none à #play
-    document.getElementById('pause').display = "block";
-    document.getElementById('play').display = "none";
+       document.querySelector('#play').classList.add("d-none");
+    document.querySelector('#pause').classList.remove("d-none");
     timer = setInterval(slideNext, 5000)
 }
 
