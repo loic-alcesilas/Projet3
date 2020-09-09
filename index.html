@@ -68,30 +68,22 @@
     	<div class="row mt-4">
     		<h2 class="text-center col-12">Louer un vélo !</h2>
 		    <div id="maCarte" class="col-12">
-		        <p>carte</p>334
 		    </div>
     	</div>
         
     </main>
-  
+
     <footer>
-        <div class="text-center">
             <img class="float-left" src="assets/img/logo.png" alt="logo" id="logo_footer" />
-        </div>
     </footer>
 	 <script src="https://kit.fontawesome.com/187226f4bc.js" crossorigin="anonymous"></script>
    
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/slider.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
-    <script> 
-        var carte = L.map('maCarte').setView([51.505, -0.09], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-            minZoom: 1,
-            maxZoom: 20
-        }).addTo(carte);
-    </script>
+	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+	<script src="assets/js/map.js"></script>
+
 </body>
 </html>

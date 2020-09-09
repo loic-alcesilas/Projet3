@@ -24,8 +24,6 @@ window.onload = () => {
     pause.addEventListener("click", slidePause);
     play.addEventListener("click", slidePlay);
 
-    // Changer de slide tous les 5sec
-    timer = setInterval(slideNext, 2000);
 
     // RESPONSIVE 
     window.addEventListener("resize", () => {
@@ -36,7 +34,6 @@ window.onload = () => {
     }
 
 function slideNext() {
-    console.log(compteur);
     compteur++;
     if(compteur == slides.length) {
         compteur = 0;

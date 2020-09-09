@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd524a0-88d9-4bf9-a1a4-f1127914d70b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/slider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599638984802</updated>
-      <workItem from="1599638986048" duration="1351000" />
+      <workItem from="1599638986048" duration="2021000" />
     </task>
     <servers />
   </component>

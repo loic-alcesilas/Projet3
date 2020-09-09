@@ -72,11 +72,11 @@ header {
 /*Footer*/
 footer {
     background: linear-gradient(45deg,#bad5dc 45%, #b4b4af 100%);
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
 }
 
-footer div{
-    height: 100px;
-}
 
 #logo_footer{
     height: 100px;
