@@ -1,82 +1,86 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Location de vélos</title>
+    <title>Location de vÃ©los</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/187226f4bc.js" crossorigin="anonymous"></script>
     <meta name="description" content="" />
     <link rel="icon" href="assets/img/favicon.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
      crossorigin="" />
+	     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 	<header class="container-fluid pb-5">
 		<div class="container text-center ">
 			<img src="assets/img/logo.png" alt="logo" id="logo" />
-	    		<h1>Location de vélos libre service</h1>
+	    	<h1>Location de vÃ©los libre service</h1>
 		</div>
     </header>
     
-    <main class="container mt-5">
+    <main class="container my-5">
     	<div class="row">
-    		<h2 class="mb-4 text-center col-12">Comment utiliser les vélos ?</h2>
-	        <div class="diapo col-12 p-0">
-	            <div class="elements col-12 p-0 h-100">
-	                <!-- Première diapo -->
-	                <div class="element col-12 p-0 h-100">
+    		<h2 class="mb-4 text-center col-12">Comment utiliser les vÃ©los ?</h2>
+	        <div class="diapo position-relative col-12 p-0">
+	            <div class="elements d-flex col-12 p-0 h-100">
+	                <!-- PremiÃ¨re diapo -->
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide1.jpg" alt="slide1">
-	                    <div class="caption col-6 p-5">
+	                    <div class="caption p-3 text-center position-absolute col-6 p-0">
 	                        <h3>slide1</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
-	                <!-- Deuxième diapo -->
-	                <div class="element col-12 p-0 h-100">
+	                <!-- DeuxiÃ¨me diapo -->
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide2.jpg" alt="slide2" />
-	                    <div class="caption col-6">
+	                    <div class="caption p-3 text-center position-absolute col-6">
 	                        <h3>slide2</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
-	                <!-- Troisième diapo-->
-	                <div class="element col-12 p-0 h-100">
+	                <!-- TroisiÃ¨me diapo-->
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide3.jpg" alt="slide3" />
-	                    <div class="caption col-6">
+	                    <div class="caption p-3 text-center position-absolute col-6">
 	                        <h3>slide3</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
-	                <!-- Quatrième diapo-->
-	                <div class="element col-12 p-0 h-100">
+	                <!-- QuatriÃ¨me diapo-->
+	                <div class="element position-relative col-12 p-0 h-100">
 	                    <img class="col-12 p-0 h-100" src="assets/img/slide4.jpg" alt="slide4" />
-	                    <div class="caption col-6">
+	                    <div class="caption p-3 text-center position-absolute col-6">
 	                        <h3>slide4</h3>
 	                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
 	                    </div>
 	                </div>
 	            </div>
-	            <i id="nav-gauche" class="fas fa-chevron-left"></i>
-	            <i id="nav-droite" class="fas fa-chevron-right"></i>
-	            <i id="pause" class="play_controls far fa-pause-circle"></i>
-	            <i id="play" class="d-none play_controls far fa-play-circle"></i>
+	            <i id="nav-gauche" class="position-absolute fas fa-chevron-left"></i>
+	            <i id="nav-droite" class="position-absolute fas fa-chevron-right"></i>
+	            <i id="pause" class="position-absolute play_controls far fa-pause-circle" onclick="slidePause()"></i>
+	            <i id="play" class="position-absolute d-none play_controls far fa-play-circle" onclick="slidePlay()"></i>
 	        </div>
     	</div>
     	<div class="row mt-4">
-    		<h2 class="text-center col-12">Louer un vélo !</h2>
+    		<h2 class="text-center col-12">Louer un vÃ©lo !</h2>
 		    <div id="maCarte" class="col-12">
 		        <p>carte</p>
 		    </div>
     	</div>
         
     </main>
-    
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  
+    <footer>
+        <div class="text-center">
+            <img class="float-left" src="assets/img/logo.png" alt="logo" id="logo_footer" />
+        </div>
+    </footer>
+	 <script src="https://kit.fontawesome.com/187226f4bc.js" crossorigin="anonymous"></script>
+   
     <script src="assets/js/scripts.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -84,16 +88,10 @@
     <script> 
         var carte = L.map('maCarte').setView([51.505, -0.09], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+            attribution: 'donnÃ©es Â© <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
             minZoom: 1,
             maxZoom: 20
         }).addTo(carte);
     </script>
-    <footer>
-        <div class="text-center">
-            <img src="assets/img/logo.png" alt="logo" id="logo_footer" />
-            <input class="reserver" type="button" name="" value="Réserver" />
-        </div>
-    </footer>
 </body>
 </html>
