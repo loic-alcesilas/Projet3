@@ -7,6 +7,7 @@ let slideWidth;
 
 
 window.onload = () => {
+
     const diapo = document.querySelector(".diapo")
     elements = document.querySelector(".elements");
     slides = Array.from(elements.children);

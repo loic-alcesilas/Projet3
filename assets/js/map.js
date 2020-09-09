@@ -1,7 +1,6 @@
 //Recuperer toutes les stations de vélos via l'API JC DECAUX
 
 window.onload = () => {
-
     map = new OpenLayers.Map("maCarte");
     map.addLayer(new OpenLayers.Layer.OSM());
 
