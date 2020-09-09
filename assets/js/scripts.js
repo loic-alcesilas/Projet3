@@ -69,4 +69,3 @@ function slidePlay() {
     timer = setInterval(slideNext, 5000)
 }
 
-
