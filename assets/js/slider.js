@@ -7,7 +7,6 @@ let slideWidth;
 
 
 window.onload = () => {
-
     const diapo = document.querySelector(".diapo")
     elements = document.querySelector(".elements");
     slides = Array.from(elements.children);
@@ -30,7 +29,7 @@ window.onload = () => {
     window.addEventListener("resize", () => {
         slideWidth = diapo.getBoundingClientRect().width;
         slideNext();
-    })
+    })   
 
     }
 
@@ -61,6 +60,6 @@ function slidePause() {
 function slidePlay() {
     document.querySelector('#play').classList.add("d-none");
     document.querySelector('#pause').classList.remove("d-none");
-    timer = setInterval(slideNext, 2000)
+    timer = setInterval(slideNext, 5000)
 }
 
