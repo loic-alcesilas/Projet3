@@ -63,10 +63,32 @@ header {
     border-radius: 15px;
 }
 
-/*Carte*/
+/*Carte et panneau d'information*/
 #maCarte {
     height: 400px;
     border-radius: 10px;
+}
+
+#map-container{
+    display: flex;
+}
+
+#stationinfo {
+    text-align: center;
+    background-color: #e6e6e6;
+    padding: 20px;
+    transition: .6s ease-in-out;
+    -webkit-transition: .6s ease-in-out;
+
+}
+
+.station-header{
+    font-size: 2em;
+}
+
+h4{
+    font-size: 1.2em;
+
 }
 
 /*Footer*/
