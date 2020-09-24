@@ -70,18 +70,33 @@
             <div id="map-container">
                 <div id="maCarte" class="col-12"></div>
                 <div id="container" class="col-md-12">
-                    <div id="stationinfo" class="invisible col-md-12">
-                        <h2 class="station-header">Détails de la station</h2>
-                        <h4 class="">Station :</h4>
-                        <h4 class="">adresse :</h4>
-                        <h4 class="">status :</h4>
-                        <h4 class="">Nombre de vélos</h4>
-                    </div>
+					<div id="stationinfo" class="invisible col-md-12">
+						<h2 class="station-header border-bottom border-danger">Détails de la station</h2>
+						<h4 class="">Station :</h4>
+						<h4 class="">adresse :</h4>
+						<h4 class="">status :</h4>
+						<h4 class="">Nombre de vélos</h4>
+						<div id="reservation">
+                            <h3 class="border-bottom border-danger">Réservation</h3>
+							<form action="/" method="post">
+								<label for="lastname">Votre nom</label>
+								<br />
+								<div>
+									<input id="lastname" type="text" placeholder="Nom" minlength="1" maxlength="14" size="14" required=""/>
+								</div>
+								<label for="firstname">Votre prénom</label>
+								<br />
+								<div>
+									<input id="firstname" type="text" placeholder="Prénom" minlength="1" maxlength="14" size="14" required=""/>
+								</div>
+								<input type="submit" value="Réserver un vélo" />
+							</form>
+						</div>
+					</div>
                 </div>
             </div>
         </div>
     </main>
-
     <footer>
             <img class="float-left" src="assets/img/logo.png" alt="logo" id="logo_footer" />
     </footer>

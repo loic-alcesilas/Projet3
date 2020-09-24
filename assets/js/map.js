@@ -52,10 +52,14 @@ request.send();
 let stationinformations = document.getElementById('stationinfo');
 
 $(document).ready(function () {
+
     $(L.marker).click(function () {
-        $('#stationinfo').removeClass('invisible');
-    });
-});
+        function display() {
+            stationinformations.classList.replace("invisible", "visible");
+        }
+        display();
+    })
+})
 
 
 

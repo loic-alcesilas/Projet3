@@ -65,7 +65,7 @@ header {
 
 /*Carte et panneau d'information*/
 #maCarte {
-    height: 400px;
+    height: 500px;
     border-radius: 10px;
 }
 
@@ -77,9 +77,7 @@ header {
     text-align: center;
     background-color: #e6e6e6;
     padding: 20px;
-    transition: .6s ease-in-out;
-    -webkit-transition: .6s ease-in-out;
-
+    border-radius: 10px;
 }
 
 .station-header{
@@ -90,6 +88,29 @@ h4{
     font-size: 1.2em;
 
 }
+
+#lastname{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#firstname{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+input[type="submit"] {
+    background-color: #0e86ca;
+    color: white;
+    border: 1px solid #10a1de;
+    margin: 20px 0px;
+    padding: 9px 30px;
+    font-size: 17px;
+    line-height: 20px;
+}
+
 
 /*Footer*/
 footer {
