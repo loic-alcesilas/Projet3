@@ -65,17 +65,22 @@
 				<i id="play" class="position-absolute d-none play_controls far fa-play-circle"></i>
 			</div>
 		</div>
-		<div class="row mt-4">
+		<div class="row mt-4 align-items-center">
 			<h2 class="text-center col-12">Louer un vélo !</h2>
-			<div id="map-container">
+			<div id="map-container" class="col-12">
 				<div id="maCarte" class="col-12"></div>
-				<div id="container" class="col-md-12">
-					<div id="stationinfo" class="invisible col-md-12">
+			</div>
+				<div class="col-md-4">
+					<div id="stationinfo" class="d-none col-md-12">
 						<h2 class="station-header border-bottom border-danger">Détails de la station</h2>
-						<h4 class=""> <span id="stationName"></span>Station :</h4>
-						<h4 class=""> <span id="stationAddress"></span>adresse :</h4>
-						<h4 class=""> <span id="stationStatus"></span>status :</h4>
-						<h4 class=""> <span id="stationBike"></span>Nombre de vélos</h4>
+						<h4>Station :</h4>
+						<p id="stationName"></p>
+						<h4> Adresse :</h4>
+						<p id="stationAddress"></p>
+						<h4> Status :</h4>
+						<p id="stationStatus"></p>
+						<h4> Nombre de vélos</h4>
+						<p id="stationBike"></p>
 						<div id="reservation">
 							<h3 class="border-bottom border-danger">Réservation</h3>
 							<form action="/" method="post">

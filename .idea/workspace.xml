@@ -61,7 +61,9 @@
       <option name="presentableId" value="Default" />
       <updated>1599638984802</updated>
       <workItem from="1599638986048" duration="2021000" />
-      <workItem from="1601024967801" duration="4107000" />
+      <workItem from="1601024967801" duration="4379000" />
+      <workItem from="1601108180673" duration="12000" />
+      <workItem from="1601392038534" duration="1424000" />
     </task>
     <servers />
   </component>
@@ -79,5 +81,23 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601108191246">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601108191246" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/assets/js/map.js</url>
+          <line>3</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

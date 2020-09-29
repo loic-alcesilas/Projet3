@@ -10,12 +10,13 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 //essaie d'ajout des info sur la panneau 
-var onMarkerClick = function (address, status, nbBike) {
-    document.getElementById('stationinfo').classList.replace("invisible", "visible");
+var onMarkerClick = function (address, name, available_bikes, status) {
+    document.getElementById('stationinfo').classList.replace("d-none", "d-initial");
+    document.getElementById('map-container').classList.replace("col-12", "col-8");
     document.getElementById('stationAddress').textContent = (address);
     document.getElementById('stationName').textContent = (name);
     document.getElementById('stationStatus').textContent = (status);
-    document.getElementById('stationBike').textContent = (available_bike);
+    document.getElementById('stationBike').textContent = (available_bikes);
 }
 
 var request = new XMLHttpRequest();
@@ -27,7 +28,7 @@ request.onreadystatechange = function () {
             var marker = L.marker([response['position']['lat'], response['position']['lng']]);
 
             //Handle click on marker
-            marker.on('click', onMarkerClick.bind(this, response.address, response.name, response.available_bike, response.status));
+            marker.on('click', onMarkerClick.bind(this, response.address, response.name, response.available_bikes, response.status));
 
             marker.addTo(map);
 
