@@ -9,8 +9,13 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     accessToken: 'pk.eyJ1IjoibG9pY29jIiwiYSI6ImNrZmkyNG13ajAycWgzMHFqanBvN3J5MTAifQ.AEuScT5GN9h-CXKSd69VFA'
 }).addTo(map);
 
-var onMarkerClick = function(address, status, nbBike){
-    alert("You clicked on marker: " + address);
+//essaie d'ajout des info sur la panneau 
+var onMarkerClick = function (address, status, nbBike) {
+    document.getElementById('stationinfo').classList.replace("invisible", "visible");
+    document.getElementById('stationAddress').textContent = (address);
+    document.getElementById('stationName').textContent = (name);
+    document.getElementById('stationStatus').textContent = (status);
+    document.getElementById('stationBike').textContent = (available_bike);
 }
 
 var request = new XMLHttpRequest();
@@ -22,7 +27,7 @@ request.onreadystatechange = function () {
             var marker = L.marker([response['position']['lat'], response['position']['lng']]);
 
             //Handle click on marker
-            marker.on('click', onMarkerClick.bind(this, response.address,'c','d'));
+            marker.on('click', onMarkerClick.bind(this, response.address, response.name, response.available_bike, response.status));
 
             marker.addTo(map);
 
@@ -33,5 +38,4 @@ request.onreadystatechange = function () {
 };
 request.open("GET", "https://api.jcdecaux.com/vls/v1/stations?contract=rouen&apiKey=fefa77128452c1aa0a3a63dd7a9f67bfcbcef4d5");
 request.send();
-
 
