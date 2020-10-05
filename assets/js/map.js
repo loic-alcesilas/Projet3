@@ -39,4 +39,3 @@ request.onreadystatechange = function () {
 };
 request.open("GET", "https://api.jcdecaux.com/vls/v1/stations?contract=rouen&apiKey=fefa77128452c1aa0a3a63dd7a9f67bfcbcef4d5");
 request.send();
-
