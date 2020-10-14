@@ -35,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="09_submit_form_local_storage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,7 +48,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../xampp/htdocs/Dimitri/Orinoco" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -64,7 +64,8 @@
       <workItem from="1601024967801" duration="4379000" />
       <workItem from="1601108180673" duration="12000" />
       <workItem from="1601392038534" duration="1951000" />
-      <workItem from="1601974183909" duration="1549000" />
+      <workItem from="1601974183909" duration="2064000" />
+      <workItem from="1602660555274" duration="3328000" />
     </task>
     <servers />
   </component>
@@ -94,7 +95,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/assets/js/map.js</url>
-          <line>3</line>
+          <line>6</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
