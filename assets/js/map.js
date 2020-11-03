@@ -53,7 +53,7 @@ var onMarkerClick = function (infos) {
 /***************************************************************************************/
 /************** SUBMIT FORM, SET AND OBJECT AND SAVE IT ON LOCAL STORAGE **************/
 /**************************************************************************************/
-document.getElementById("book").addEventListener("submit", submitForm);
+document.getElementById("book").addEventListener("submit", submitForm, submitbutton);
 function submitForm() {
     //Get all value from the form
     var number = document.getElementById('number').value;
@@ -62,24 +62,35 @@ function submitForm() {
 
 
     //Si il manque le prenom ou le nom ou que la signature est false alors on met une larte
-    if(){
-
-    } else{
-        //Set an object with values
-        var object = {
-            number: number,
-            firstname: firstname,
-            lastname: lastname,
-            bookingtime: Date.now()
+    submitbutton.onclick = showAlert;
+    function showAlert() {
+        // Récupérer la valeur des champs nom et prénom
+        var Nom = document.getElementById('lastname').value;
+        var Prénom = document.getElementById('firstname').value;
+        // Contrôle sur le nom
+        if ((Nom == "") || (Prénom == "")) {
+            alert('Vous devez compléter votre nom et prénom !');
+            // Permet de bloquer l'envoi du formulaire
+            return false;
         }
-        //Set object into local storage convert into string
-        localStorage.setItem("booking", JSON.stringify(object));
+        else { 
+            //Set an object with values
+            var object = {
+                number: number,
+                firstname: firstname,
+                lastname: lastname,
+                bookingtime: Date.now()
+            }
+            //Set object into local storage convert into string
+            localStorage.setItem("booking", JSON.stringify(object));
 
-        //call function to set HTML Booking
-        setHtmlBooking();
-    }
+            //call function to set HTML Booking
+            setHtmlBooking();
+        }
+    }        
 
 }
+
 
 /*************************************************************************************************/
 /************** GET BOOKING FROM LOCAL STORAGE? VIEW HTML FOR BOOKING AND SET VALUE **************/
