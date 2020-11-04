@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd524a0-88d9-4bf9-a1a4-f1127914d70b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fe0162ae7b4bd06e632d3f83df8133d553e41dbd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fe0162ae7b4bd06e632d3f83df8133d553e41dbd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +65,10 @@
       <workItem from="1601108180673" duration="12000" />
       <workItem from="1601392038534" duration="1951000" />
       <workItem from="1601974183909" duration="2064000" />
-      <workItem from="1602660555274" duration="3328000" />
+      <workItem from="1602660555274" duration="3490000" />
+      <workItem from="1603530488387" duration="708000" />
+      <workItem from="1603544756777" duration="28000" />
+      <workItem from="1604484939148" duration="2326000" />
     </task>
     <servers />
   </component>
@@ -85,10 +88,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1601974744887">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1603544783302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601974744887" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603544783302" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

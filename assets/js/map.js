@@ -113,6 +113,8 @@ function setHtmlBooking(){
     document.getElementById('bookingStation').textContent = booking.number;
     document.getElementById('bookingFirstname').textContent = booking.firstname;
     document.getElementById('bookingLastname').textContent = booking.lastname;
+    timeLeft();
+    setInterval(timeLeft, 1000);
 }
 
 /*************************************************************************************************/
@@ -125,19 +127,26 @@ if(JSON.parse(localStorage.getItem('booking'))){
 /**********************************************/
 /************** COMPTEUR **********************/
 /**********************************************/
-setInterval(getTime(), 60 * 1000);
 
-function getTime(){
-    var today = new Date();
-    var Booking = new Date(JSON.parse(localStorage.getItem('booking')).bookingtime);
-    var diffMs = (today - Booking); // milliseconds between now & Christmas
-    var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-    var diffSec = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
-    document.getElementById('bookingTime').textContent = diffMins;
+function removeBooking(){
+    storage.removeItem('booking');
+    document.getElementById('bookingTime').textContent = "expirée.";
 }
 
+function timeLeft() {
+    var now = new Date(JSON.parse(localStorage.getItem('booking')).bookingtime);
+    var endDate = new Date();
+    var diff = endDate - now;
+    var minutes = 20 - (Math.ceil((diff % 3.6e6) / 6e4));
+    var seconds = 60 - (Math.ceil((diff % 6e4) / 1000));
 
+    if(minutes == 0 && seconds == 0){
+        removeBooking();
+    }
+    document.getElementById('bookingTime').textContent = minutes+ " minutes et "+seconds+" secondes";
+}
 
-console.log(new Date(JSON.parse(localStorage.getItem('booking')).bookingtime));
-console.log(new Date(Date.now()));
-
+if(localStorage.getItem('booking') != null){
+    timeLeft();
+    setInterval(timeLeft, 1000);
+}
