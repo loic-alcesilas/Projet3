@@ -126,8 +126,8 @@ if(localStorage.getItem('booking') != null){
 
 //If timer is end, remove local storage and set message to expired
 function removeBooking(){
-    storage.removeItem('booking');
-    document.getElementById('bookingTime').textContent = "expirée.";
+    localStorage.removeItem('booking');
+    document.getElementById('bookingTime').textContent = "expiré.";
 }
 
 //This function update timer on html code
@@ -139,7 +139,7 @@ function timeLeft() {
     var seconds = 60 - (Math.ceil((diff % 6e4) / 1000));
 
     //If there is no time, remove booking
-    if(minutes == 0 && seconds == 0){
+    if(minutes <= 0 && seconds == 0){
         removeBooking();
     }
     document.getElementById('bookingTime').textContent = minutes+ " minutes et "+seconds+" secondes";
