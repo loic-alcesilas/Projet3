@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1bd524a0-88d9-4bf9-a1a4-f1127914d70b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fe0162ae7b4bd06e632d3f83df8133d553e41dbd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/fe0162ae7b4bd06e632d3f83df8133d553e41dbd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/map.js" afterDir="false" />
     </list>
@@ -68,7 +67,7 @@
       <workItem from="1602660555274" duration="3490000" />
       <workItem from="1603530488387" duration="708000" />
       <workItem from="1603544756777" duration="28000" />
-      <workItem from="1604484939148" duration="2326000" />
+      <workItem from="1604484939148" duration="2478000" />
     </task>
     <servers />
   </component>

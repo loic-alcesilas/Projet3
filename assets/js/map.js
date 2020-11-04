@@ -113,26 +113,33 @@ function setHtmlBooking(){
     document.getElementById('bookingStation').textContent = booking.number;
     document.getElementById('bookingFirstname').textContent = booking.firstname;
     document.getElementById('bookingLastname').textContent = booking.lastname;
+    //Set timer first time
     timeLeft();
+    //set interval to refresh timer every second
     setInterval(timeLeft, 1000);
 }
 
 /*************************************************************************************************/
 /************** SET HTML BOOKING IF THERE IS SOME BOOKING IN LOCAL STORAGE **********************/
 /************************************************************************************************/
-if(JSON.parse(localStorage.getItem('booking'))){
+//if local storage exist, set html and set interval to refresh every seconds
+if(localStorage.getItem('booking') != null){
     setHtmlBooking();
+    timeLeft();
+    setInterval(timeLeft, 1000);
 }
 
 /**********************************************/
 /************** COMPTEUR **********************/
 /**********************************************/
 
+//If timer is end, remove local storage and set message to expired
 function removeBooking(){
     storage.removeItem('booking');
     document.getElementById('bookingTime').textContent = "expirée.";
 }
 
+//This function update timer on html code
 function timeLeft() {
     var now = new Date(JSON.parse(localStorage.getItem('booking')).bookingtime);
     var endDate = new Date();
@@ -140,13 +147,9 @@ function timeLeft() {
     var minutes = 20 - (Math.ceil((diff % 3.6e6) / 6e4));
     var seconds = 60 - (Math.ceil((diff % 6e4) / 1000));
 
+    //If there is no time, remove booking
     if(minutes == 0 && seconds == 0){
         removeBooking();
     }
     document.getElementById('bookingTime').textContent = minutes+ " minutes et "+seconds+" secondes";
-}
-
-if(localStorage.getItem('booking') != null){
-    timeLeft();
-    setInterval(timeLeft, 1000);
 }
