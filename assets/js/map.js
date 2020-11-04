@@ -1,3 +1,4 @@
+
 /************************************/
 /************** SET MAP ************/
 /************************************/
@@ -60,35 +61,25 @@ function submitForm() {
     var firstname = document.getElementById("lastname").value;
     var lastname = document.getElementById("firstname").value;
 
-
-    //Si il manque le prenom ou le nom ou que la signature est false alors on met une larte
-    submitbutton.onclick = showAlert;
-    function showAlert() {
-        // Récupérer la valeur des champs nom et prénom
+       // Secure that firstname and lastname are not empty
         var Nom = document.getElementById('lastname').value;
         var Prénom = document.getElementById('firstname').value;
         // Contrôle sur le nom
-        if ((Nom == "") || (Prénom == "")) {
+        if (Nom.length == 0 || Prénom.length == 0) {
             alert('Vous devez compléter votre nom et prénom !');
-            // Permet de bloquer l'envoi du formulaire
             return false;
         }
-        else { 
-            //Set an object with values
-            var object = {
-                number: number,
-                firstname: firstname,
-                lastname: lastname,
-                bookingtime: Date.now()
-            }
-            //Set object into local storage convert into string
-            localStorage.setItem("booking", JSON.stringify(object));
+        //TEST IF CANVAS SIGNATURE IS TRUE, ELSE ALERT AND RETURN FALSE
 
-            //call function to set HTML Booking
-            setHtmlBooking();
+        //Set an object with values
+        var object = {
+            number: number,
+            firstname: firstname,
+            lastname: lastname,
+            bookingtime: Date.now()
         }
-    }        
-
+        //Set object into local storage convert into string
+        localStorage.setItem("booking", JSON.stringify(object));
 }
 
 
