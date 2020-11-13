@@ -14,6 +14,9 @@ class Canvas {
         this.lastPosition = this.mousePosition;
         this.eventListener();
     }
+    
+   
+
 
     eventListener() {
         //Souris
@@ -24,6 +27,7 @@ class Canvas {
             empty = false; //pour indiquer que le canvas est signé
             console.log(empty);
         });
+
 
         this.canvas.addEventListener("mousemove", function (e) {
             self.mousePosition = self.getMposition(e);
