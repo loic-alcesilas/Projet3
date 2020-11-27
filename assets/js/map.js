@@ -61,16 +61,16 @@ function submitForm() {
     var firstname = document.getElementById("lastname").value;
     var lastname = document.getElementById("firstname").value;
 
-       // Secure that firstname and lastname are not empty
-        var Nom = document.getElementById('lastname').value;
-        var Prénom = document.getElementById('firstname').value;
+    // Secure that firstname and lastname are not empty
+    var Nom = document.getElementById('lastname').value;
+    var Prénom = document.getElementById('firstname').value;
         // Contrôle sur le nom
         if (Nom.length == 0 || Prénom.length == 0) {
             alert('Vous devez compléter votre nom et prénom !');
             return false;
-        }
+    }
         //TEST IF CANVAS SIGNATURE IS TRUE, ELSE ALERT AND RETURN FALSE
-
+   
         //Set an object with values
         var object = {
             number: number,
