@@ -31,7 +31,18 @@ window.onload = () => {
         slideNext();
     })   
 
+}
+
+timer = setInterval(slideNext, 5000)
+
+document.addEventListener("keydown", function (fleche) {
+    if (fleche.keyCode === 37) {
+        slidePrev();
     }
+    else if (fleche.keyCode === 39) {
+        slideNext();
+    }
+});
 
 function slideNext() {
     compteur++;

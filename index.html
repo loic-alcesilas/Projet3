@@ -28,34 +28,34 @@
 				<div class="elements d-flex col-12 p-0 h-100">
 					<!-- Première diapo -->
 					<div class="element position-relative col-12 p-0 h-100">
-						<img class="col-12 p-0 h-100" src="assets/img/slide1.jpg" alt="slide1">
+						<img class="col-12 p-0 h-100" src="assets/img/slide1.png" alt="slide1">
 						<div class="caption p-3 text-center position-absolute col-6 p-0">
-							<h3>slide1</h3>
-							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+							<h3>1. Choix de la station</h3>
+							<p>Veuillez choisir votre station sur la carte de Rouen si dessous</p>
 						</div>
 					</div>
 					<!-- Deuxième diapo -->
 					<div class="element position-relative col-12 p-0 h-100">
-						<img class="col-12 p-0 h-100" src="assets/img/slide2.jpg" alt="slide2" />
+						<img class="col-12 p-0 h-100" src="assets/img/slide2.png" alt="slide2" />
 						<div class="caption p-3 text-center position-absolute col-6">
-							<h3>slide2</h3>
-							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+							<h3>2. Informations de la station</h3>
+							<p>Aprés avoir cliqué sur un marqueur vous verrez les informations concernant la station.</p>
 						</div>
 					</div>
 					<!-- Troisième diapo-->
 					<div class="element position-relative col-12 p-0 h-100">
-						<img class="col-12 p-0 h-100" src="assets/img/slide3.jpg" alt="slide3" />
+						<img class="col-12 p-0 h-100" src="assets/img/slide3.png" alt="slide3" />
 						<div class="caption p-3 text-center position-absolute col-6">
-							<h3>slide3</h3>
-							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+							<h3>3. Remplir le formulaire</h3>
+							<p>Aprés avoir choisit votre station veuillez remplir votre nom ,prénom et signez dans le cadre blanc pour réserver !</p>
 						</div>
 					</div>
 					<!-- Quatrième diapo-->
 					<div class="element position-relative col-12 p-0 h-100">
-						<img class="col-12 p-0 h-100" src="assets/img/slide4.jpg" alt="slide4" />
+						<img class="col-12 p-0 h-100" src="assets/img/slide4.png" alt="slide4" />
 						<div class="caption p-3 text-center position-absolute col-6">
-							<h3>slide4</h3>
-							<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, saepe.</p>
+							<h3>4. Votre vélo est réservé</h3>
+							<p>Aprés avoir cliquez sur le button, votre vélo est donc disponible pendant 20min.</p>
 						</div>
 					</div>
 				</div>
@@ -72,34 +72,41 @@
 			</div>
 				<div class="col-md-4">
 					<div id="stationinfo" class="d-none col-md-12">
-						<h2 class="station-header border-bottom border-danger">Détails de la station</h2>
-						<h4>Station :</h4>
-						<p id="stationName"></p>
+						<h2  id="stationName"class="station-header border-bottom border-danger"></h2>
 						<h4> Adresse :</h4>
 						<p id="stationAddress"></p>
 						<h4> Status :</h4>
 						<p id="stationStatus"></p>
-						<h4> Nombre de vélos</h4>
+						<h4>Vélos disponibles</h4>
 						<p id="stationBike"></p>
+						<h4>Stands disponibles</h4>
+						<p id="stationStand"></p>
 						<div id="reservation">
 							<h3 class="border-bottom border-danger">Réservation</h3>
-							<form action="/" method="post">
+							<form action="/" method="post" id="book">
 								<label for="lastname">Votre nom</label>
 								<br />
 								<div>
-									<input id="lastname" type="text" placeholder="Nom" minlength="1" maxlength="14" size="14" required="" />
+									<input id="lastname" type="text" name="nom" placeholder="Nom" minlength="1" maxlength="14" size="14" />
 								</div>
 								<label for="firstname">Votre prénom</label>
 								<br />
 								<div>
-									<input id="firstname" type="text" placeholder="Prénom" minlength="1" maxlength="14" size="14" required="" />
+									<input id="firstname" type="text" placeholder="Prénom" minlength="1" maxlength="14" size="14" />
 								</div>
-								<input type="submit" value="Réserver un vélo" />
+								<input type="hidden" id="number"/>
+								<canvas id="canvas"></canvas>
+								<input id="clearcanvas" type="button" name="name" value="Effacer la signature" />
+								<input type="submit" value="Réserver un vélo" id="submitbutton"/>
+								<p id="reserv" class="d-none">Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation</p>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
+        <div id="infoReservation" class="d-none">
+			<p>Vélo réservé à la station <span id="bookingStation"></span> par <span id="bookingFirstname"></span> <span id="bookingLastname"></span></p>
+			<p>Temps restant : <span id="bookingTime"></span></p>
 		</div>
 	</main>
 	<footer>
@@ -114,8 +121,6 @@
 			crossorigin=""></script>
 	<script src="assets/js/map.js"></script>
 	<script src="assets/js/slider.js"></script>
-
-
-
+	<script src="assets/js/canvas.js"></script>
 </body>
 </html>
