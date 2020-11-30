@@ -64,29 +64,31 @@ function submitForm() {
     // Secure that firstname and lastname are not empty
     var Nom = document.getElementById('lastname').value;
     var Prénom = document.getElementById('firstname').value;
-        // Contrôle sur le nom
-        if (Nom.length == 0 || Prénom.length == 0) {
-            alert('Vous devez compléter votre nom et prénom !');
-            return false;
+    // Contrôle sur le nom
+    if (Nom.length == 0 || Prénom.length == 0) {
+        alert('Vous devez compléter votre nom et prénom !');
+        return false;
     }
-        //TEST IF CANVAS SIGNATURE IS TRUE, ELSE ALERT AND RETURN FALSE
-   
-        //Set an object with values
-        var object = {
-            number: number,
-            firstname: firstname,
-            lastname: lastname,
-            bookingtime: Date.now()
-        }
-        //Set object into local storage convert into string
-        localStorage.setItem("booking", JSON.stringify(object));
+
+
+    //TEST IF CANVAS SIGNATURE IS TRUE, ELSE ALERT AND RETURN FALSE
+
+    //Set an object with values
+    var object = {
+        number: number,
+        firstname: firstname,
+        lastname: lastname,
+        bookingtime: Date.now()
+    }
+    //Set object into local storage convert into string
+    localStorage.setItem("booking", JSON.stringify(object));
 }
 
 
 /*************************************************************************************************/
 /************** GET BOOKING FROM LOCAL STORAGE? VIEW HTML FOR BOOKING AND SET VALUE **************/
 /************************************************************************************************/
-function setHtmlBooking(){
+function setHtmlBooking() {
     document.getElementById('infoReservation').classList.replace("d-none", "d-initial");
     //Get booking from local storage convert into object
     var booking = JSON.parse(localStorage.getItem('booking'));
@@ -97,7 +99,7 @@ function setHtmlBooking(){
             document.getElementById('bookingStation').textContent = JSON.parse(this.responseText).name;
         }
     };
-    request.open("GET", "https://api.jcdecaux.com/vls/v3/stations/"+booking.number+"?contract=rouen&apiKey=fefa77128452c1aa0a3a63dd7a9f67bfcbcef4d5");
+    request.open("GET", "https://api.jcdecaux.com/vls/v3/stations/" + booking.number + "?contract=rouen&apiKey=fefa77128452c1aa0a3a63dd7a9f67bfcbcef4d5");
     request.send();
 
     //Set html content
@@ -114,7 +116,7 @@ function setHtmlBooking(){
 /************** SET HTML BOOKING IF THERE IS SOME BOOKING IN LOCAL STORAGE **********************/
 /************************************************************************************************/
 //if local storage exist, set html and set interval to refresh every seconds
-if(localStorage.getItem('booking') != null){
+if (localStorage.getItem('booking') != null) {
     setHtmlBooking();
     timeLeft();
     setInterval(timeLeft, 1000);
@@ -125,7 +127,7 @@ if(localStorage.getItem('booking') != null){
 /**********************************************/
 
 //If timer is end, remove local storage and set message to expired
-function removeBooking(){
+function removeBooking() {
     localStorage.removeItem('booking');
     document.getElementById('bookingTime').textContent = "expiré.";
 }
@@ -139,8 +141,8 @@ function timeLeft() {
     var seconds = 60 - (Math.ceil((diff % 6e4) / 1000));
 
     //If there is no time, remove booking
-    if(minutes <= 0 && seconds == 0){
+    if (minutes <= 0 && seconds == 0) {
         removeBooking();
     }
-    document.getElementById('bookingTime').textContent = minutes+ " minutes et "+seconds+" secondes";
+    document.getElementById('bookingTime').textContent = minutes + " minutes et " + seconds + " secondes";
 }

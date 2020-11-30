@@ -14,8 +14,7 @@ class Canvas {
         this.lastPosition = this.mousePosition;
         this.eventListener();
     }
-    
-   
+
 
 
     eventListener() {
@@ -26,6 +25,9 @@ class Canvas {
             self.lastPosition = self.getMposition(e);
             empty = false; //pour indiquer que le canvas est signé
             console.log(empty);
+            if (empty == false) {
+                document.getElementById('submitbutton').classList.replace("d-none", "d-initial");
+            }
         });
 
 
@@ -81,8 +83,9 @@ class Canvas {
         this.ctx.lineWidth = 3;
         empty = true;
         console.log(empty);
-
+        if (empty == true) {
+            document.getElementById('submitbutton').classList.replace("d-initial", "d-none");
+        }
     }
-
 }
 new Canvas();
