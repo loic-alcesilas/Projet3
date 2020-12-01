@@ -69,8 +69,6 @@ function submitForm() {
         alert('Vous devez compléter votre nom et prénom !');
         return false;
     }
-
-
     //TEST IF CANVAS SIGNATURE IS TRUE, ELSE ALERT AND RETURN FALSE
 
     //Set an object with values
@@ -82,8 +80,11 @@ function submitForm() {
     }
     //Set object into local storage convert into string
     localStorage.setItem("booking", JSON.stringify(object));
+  
+    if ("booking" in localStorage) {
+        document.getElementById('alreadyreservation').classList.replace("d-none", "d-initial");
+    }
 }
-
 
 /*************************************************************************************************/
 /************** GET BOOKING FROM LOCAL STORAGE? VIEW HTML FOR BOOKING AND SET VALUE **************/
@@ -116,7 +117,7 @@ function setHtmlBooking() {
 /************** SET HTML BOOKING IF THERE IS SOME BOOKING IN LOCAL STORAGE **********************/
 /************************************************************************************************/
 //if local storage exist, set html and set interval to refresh every seconds
-if (localStorage.getItem('booking') != null) {
+if (localStorage.getItem('booking') !=null) {
     setHtmlBooking();
     timeLeft();
     setInterval(timeLeft, 1000);
