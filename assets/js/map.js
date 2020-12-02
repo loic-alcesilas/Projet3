@@ -138,12 +138,15 @@ function timeLeft() {
     var now = new Date(JSON.parse(localStorage.getItem('booking')).bookingtime);
     var endDate = new Date();
     var diff = endDate - now;
-    var minutes = 20 - (Math.ceil((diff % 3.6e6) / 6e4));
+    var minutes = 1 - (Math.ceil((diff % 3.6e6) / 6e4));
     var seconds = 60 - (Math.ceil((diff % 6e4) / 1000));
 
     //If there is no time, remove booking
     if (minutes <= 0 && seconds == 0) {
         removeBooking();
+        document.getElementById('expired').classList.replace("d-none", "d-initial");
+        document.getElementById('infoTime').classList.replace("d-initial", "d-none");
+
     }
     document.getElementById('bookingTime').textContent = minutes + " minutes et " + seconds + " secondes";
 }
