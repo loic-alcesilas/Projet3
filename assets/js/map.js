@@ -46,6 +46,7 @@ var onMarkerClick = function (infos) {
     document.getElementById('stationAddress').textContent = (infos.address);
     document.getElementById('stationName').textContent = (infos.name);
     document.getElementById('stationStatus').textContent = (infos.status);
+    //if infos infos.avaiblebike --;
     document.getElementById('stationBike').textContent = (infos.available_bikes + '/' + infos.bike_stands);
     document.getElementById('stationStand').textContent = (infos.available_bike_stands + '/' + infos.bike_stands);
     document.getElementById('number').value = infos.number;
@@ -80,10 +81,7 @@ function submitForm() {
     }
     //Set object into local storage convert into string
     localStorage.setItem("booking", JSON.stringify(object));
-  
-    if ("booking" in localStorage) {
-        document.getElementById('alreadyreservation').classList.replace("d-none", "d-initial");
-    }
+    setHtmlBooking();
 }
 
 /*************************************************************************************************/
@@ -121,6 +119,7 @@ if (localStorage.getItem('booking') !=null) {
     setHtmlBooking();
     timeLeft();
     setInterval(timeLeft, 1000);
+    document.getElementById('alreadyreservation').classList.replace("d-none", "d-initial");
 }
 
 /**********************************************/
