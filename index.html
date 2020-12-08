@@ -97,7 +97,7 @@
 								<canvas id="canvas"></canvas>
 								<input id="clearcanvas" type="button" name="name" value="Effacer la signature" />
 								<input type="submit" value="Réserver un vélo" id="submitbutton" class="d-none"/>
-								<p id="alreadyreservation" class="d-none">Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation</p>
+								<p id="alreadyreservation" ></p>
 							</form>
 						</div>
 					</div>
@@ -106,7 +106,7 @@
         <div id="infoReservation" class="d-none">
 			<p>Vélo réservé à la station <span id="bookingStation"></span> par <span id="bookingFirstname"></span> <span id="bookingLastname"></span></p>
 			<p class="d-initial" id="infoTime">Temps restant : <span id="bookingTime"></span></p>
-            <p class="d-none" id="expired">Votre réservation a expirée</p>
+            <div class="hide" id="expired"></div>
 		</div>
 	</main>
 	<footer>

@@ -15,17 +15,15 @@ class Canvas {
         this.eventListener();
     }
 
-
-
     eventListener() {
         //Souris
         let self = this;
         this.canvas.addEventListener("mousedown", function (e) {
             self.draw = true;
             self.lastPosition = self.getMposition(e);
-            empty = false; //pour indiquer que le canvas est signé
+            empty = true; //pour indiquer que le canvas est signé
             console.log(empty);
-            if (empty == false) {
+            if (empty == true) {
                 document.getElementById('submitbutton').classList.replace("d-none", "d-initial");
             }
         });
@@ -81,9 +79,9 @@ class Canvas {
     clearCanvas() {
         this.canvas.width = this.canvas.width;
         this.ctx.lineWidth = 3;
-        empty = true;
+        empty = false;
         console.log(empty);
-        if (empty == true) {
+        if (empty == false) {
             document.getElementById('submitbutton').classList.replace("d-initial", "d-none");
         }
     }

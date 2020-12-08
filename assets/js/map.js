@@ -80,10 +80,7 @@ function submitForm() {
     }
     //Set object into local storage convert into string
     localStorage.setItem("booking", JSON.stringify(object));
-  
-    if ("booking" in localStorage) {
-        document.getElementById('alreadyreservation').classList.replace("d-none", "d-initial");
-    }
+    setHtmlBooking();
 }
 
 /*************************************************************************************************/
@@ -121,6 +118,10 @@ if (localStorage.getItem('booking') !=null) {
     setHtmlBooking();
     timeLeft();
     setInterval(timeLeft, 1000);
+    $("#alreadyreservation")
+        .html(
+            'Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation'
+        )
 }
 
 /**********************************************/
@@ -130,7 +131,6 @@ if (localStorage.getItem('booking') !=null) {
 //If timer is end, remove local storage and set message to expired
 function removeBooking() {
     localStorage.removeItem('booking');
-    document.getElementById('bookingTime').textContent = "expiré.";
 }
 
 //This function update timer on html code
@@ -141,12 +141,15 @@ function timeLeft() {
     var minutes = 1 - (Math.ceil((diff % 3.6e6) / 6e4));
     var seconds = 60 - (Math.ceil((diff % 6e4) / 1000));
 
+    document.getElementById('bookingTime').textContent = minutes + " minutes et " + seconds + " secondes";
+
     //If there is no time, remove booking
     if (minutes <= 0 && seconds == 0) {
         removeBooking();
-        document.getElementById('expired').classList.replace("d-none", "d-initial");
-        document.getElementById('infoTime').classList.replace("d-initial", "d-none");
-
+        $("#infoReservation")
+            .html(
+                "Votre réservation a expirée"
+            );
     }
-    document.getElementById('bookingTime').textContent = minutes + " minutes et " + seconds + " secondes";
+
 }
