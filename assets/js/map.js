@@ -49,7 +49,16 @@ var onMarkerClick = function (infos) {
     document.getElementById('stationBike').textContent = (infos.available_bikes + '/' + infos.bike_stands);
     document.getElementById('stationStand').textContent = (infos.available_bike_stands + '/' + infos.bike_stands);
     document.getElementById('number').value = infos.number;
-}
+    this.nbrVelosDispo = document.getElementById('stationBike');
+   
+    if (localStorage.getItem('booking') != null && localStorage.stationName === document.getElementById('stationName').textContent) {
+        document.getElementById('stationBike').textContent = (infos.available_bikes - 1);
+        document.getElementById('stationBike').textContent = "(1 réserver)";
+    } else if (localStorage.getItem('booking') === null && localStorage.stationName === document.getElementById('stationName').textContent) {
+        document.getElementById('stationBike').textContent = (infos.available_bikes);
+        document.getElementById('stationBike').textContent = "(0 reserver)";
+    }
+};
 
 /***************************************************************************************/
 /************** SUBMIT FORM, SET AND OBJECT AND SAVE IT ON LOCAL STORAGE **************/
