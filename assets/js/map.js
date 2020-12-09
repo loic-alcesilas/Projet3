@@ -51,12 +51,12 @@ var onMarkerClick = function (infos) {
     document.getElementById('number').value = infos.number;
     this.nbrVelosDispo = document.getElementById('stationBike');
    
-    if (localStorage.getItem('booking') != null && localStorage.stationName === document.getElementById('stationName').textContent) {
+    if (localStorage.getItem('booking') != null && localStorage.stationName === infos.name.textContent) {
         document.getElementById('stationBike').textContent = (infos.available_bikes - 1);
-        document.getElementById('stationBike').textContent = "(1 réserver)";
-    } else if (localStorage.getItem('booking') === null && localStorage.stationName === document.getElementById('stationName').textContent) {
+        document.getElementById('nombredevelodisponibles').textContent = "(1 réserver)";
+    } else if (localStorage.getItem('booking') === null && localStorage.stationName === infos.name.textContent) {
         document.getElementById('stationBike').textContent = (infos.available_bikes);
-        document.getElementById('stationBike').textContent = "(0 reserver)";
+        document.getElementById('nombredevelodisponibles').textContent = "(0 reserver)";
     }
 };
 
