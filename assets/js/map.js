@@ -41,6 +41,15 @@ request.send();
 /************** SET HTML STATION INFOS AND FORM ************/
 /***********************************************************/
 var onMarkerClick = function (infos) {
+
+    //MENTORAT
+    var booking = JSON.parse(localStorage.getItem('booking'));
+
+    //MENTORAT
+    if (localStorage.getItem('booking') != null && booking.number == infos.number) {
+        infos.available_bikes--;
+    }
+
     document.getElementById('stationinfo').classList.replace("d-none", "d-initial");
     document.getElementById('map-container').classList.replace("col-12", "col-8");
     document.getElementById('stationAddress').textContent = (infos.address);
@@ -50,14 +59,8 @@ var onMarkerClick = function (infos) {
     document.getElementById('stationStand').textContent = (infos.available_bike_stands + '/' + infos.bike_stands);
     document.getElementById('number').value = infos.number;
     this.nbrVelosDispo = document.getElementById('stationBike');
-   
-    if (localStorage.getItem('booking') != null && localStorage.stationName === infos.name.textContent) {
-        document.getElementById('stationBike').textContent = (infos.available_bikes - 1);
-        document.getElementById('nombredevelodisponibles').textContent = "(1 réserver)";
-    } else if (localStorage.getItem('booking') === null && localStorage.stationName === infos.name.textContent) {
-        document.getElementById('stationBike').textContent = (infos.available_bikes);
-        document.getElementById('nombredevelodisponibles').textContent = "(0 reserver)";
-    }
+
+
 };
 
 /***************************************************************************************/
