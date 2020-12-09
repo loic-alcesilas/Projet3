@@ -12,40 +12,49 @@ class Canvas {
             y: 0
         };
         this.lastPosition = this.mousePosition;
+        this.signaturePoints = 0;
         this.eventListener();
     }
-    
-   
-
 
     eventListener() {
+
         //Souris
         let self = this;
         this.canvas.addEventListener("mousedown", function (e) {
             self.draw = true;
             self.lastPosition = self.getMposition(e);
-            empty = false; //pour indiquer que le canvas est signé
+            empty = false; //pour indiquer que le canvas est signï¿½
             console.log(empty);
         });
 
 
         this.canvas.addEventListener("mousemove", function (e) {
+            self.signaturePoints++;
             self.mousePosition = self.getMposition(e);
             self.canvasResult();
         });
 
-        //quand le clic de la souris est relevé on ne "dessine plus"
-        document.addEventListener("mouseup", function (e) {
+        //quand le clic de la souris est relevï¿½ on ne "dessine plus"
+
+        this.canvas.addEventListener("mouseup", function (e) {
+            if(self.signaturePoints >= 50){
+                $('#book').append('<input type="submit" value="RÃ©server un vÃ©lo" id="submitbutton"/>');
+            } else{
+                alert("La signature est trop courte");
+                self.clearCanvas();
+            }
             self.draw = false;
         });
 
         //Effacer    
         document.getElementById("clearcanvas").addEventListener("click", function (e) {
-            self.clearCanvas()
+            document.getElementById("submitbutton").remove();
+            self.signaturePoints=0;
+            self.clearCanvas();
         });
     } // Fin eventListener()
 
-    //renvoi les coordonnées de la souris
+    //renvoi les coordonnï¿½es de la souris
     getMposition(mouseEvent) {
         if (this.draw) {
             let oRect = document.getElementById("canvas").getBoundingClientRect();
@@ -56,7 +65,7 @@ class Canvas {
         }
     } //fin getMposition
 
-    // Renvoie les coordonnées du pad 
+    // Renvoie les coordonnï¿½es du pad 
     getTposition(touchEvent) {
         var oRect = this.canvas.getBoundingClientRect();
         return {
@@ -81,8 +90,6 @@ class Canvas {
         this.ctx.lineWidth = 3;
         empty = true;
         console.log(empty);
-
     }
-
 }
 new Canvas();

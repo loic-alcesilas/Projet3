@@ -54,7 +54,7 @@ var onMarkerClick = function (infos) {
 /***************************************************************************************/
 /************** SUBMIT FORM, SET AND OBJECT AND SAVE IT ON LOCAL STORAGE **************/
 /**************************************************************************************/
-document.getElementById("book").addEventListener("submit", submitForm, submitbutton);
+document.getElementById("book").addEventListener("submit", submitForm);
 function submitForm() {
     //Get all value from the form
     var number = document.getElementById('number').value;
