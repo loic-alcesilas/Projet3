@@ -24,9 +24,6 @@ class Canvas {
             self.lastPosition = self.getMposition(e);
             empty = true; //pour indiquer que le canvas est signé
             console.log(empty);
-            if (empty == true) {
-                document.getElementById('submitbutton').classList.replace("d-none", "d-initial");
-            }
         });
 
 
