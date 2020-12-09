@@ -41,6 +41,20 @@ request.send();
 /************** SET HTML STATION INFOS AND FORM ************/
 /***********************************************************/
 var onMarkerClick = function (infos) {
+
+    //MENTORAT
+    var booking = JSON.parse(localStorage.getItem('booking'));
+
+    //MENTORAT
+    if (localStorage.getItem('booking') != null && booking.number == infos.number) {
+        infos.available_bikes--;
+    }
+
+    if (localStorage.getItem('booking') != null) {
+        $('#book').append('<p id="alreadyreservation" > Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation</p>');
+    } else {
+        document.getElementById('alreadyreservation').remove();
+    }
     document.getElementById('stationinfo').classList.replace("d-none", "d-initial");
     document.getElementById('map-container').classList.replace("col-12", "col-8");
     document.getElementById('stationAddress').textContent = (infos.address);
@@ -54,7 +68,7 @@ var onMarkerClick = function (infos) {
 /***************************************************************************************/
 /************** SUBMIT FORM, SET AND OBJECT AND SAVE IT ON LOCAL STORAGE **************/
 /**************************************************************************************/
-document.getElementById("book").addEventListener("submit", submitForm, submitbutton);
+document.getElementById("book").addEventListener("submit", submitForm);
 function submitForm() {
     //Get all value from the form
     var number = document.getElementById('number').value;
@@ -118,10 +132,6 @@ if (localStorage.getItem('booking') !=null) {
     setHtmlBooking();
     timeLeft();
     setInterval(timeLeft, 1000);
-    $("#alreadyreservation")
-        .html(
-            'Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation'
-        )
 }
 
 /**********************************************/
