@@ -40,7 +40,7 @@ request.send();
 /************************************************************/
 /************** SET HTML STATION INFOS AND FORM ************/
 /***********************************************************/
-var onMarkerClick = function (infos) {
+var onMarkerClick = function(infos) {
 
     //MENTORAT
     var booking = JSON.parse(localStorage.getItem('booking'));
@@ -50,11 +50,13 @@ var onMarkerClick = function (infos) {
         infos.available_bikes--;
     }
 
+
     if (localStorage.getItem('booking') != null) {
-        $('#book').append('<p id="alreadyreservation" > Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation</p>');
-    } else {
-        document.getElementById('alreadyreservation').remove();
+        $('#book').append('<p id="alreadyreservation"> Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation</p>');
+    } else{
+        // document.getElementById("alreadyreservation").remove();
     }
+
     document.getElementById('stationinfo').classList.replace("d-none", "d-initial");
     document.getElementById('map-container').classList.replace("col-12", "col-8");
     document.getElementById('stationAddress').textContent = (infos.address);
@@ -102,6 +104,9 @@ function submitForm() {
 /************************************************************************************************/
 function setHtmlBooking() {
     document.getElementById('infoReservation').classList.replace("d-none", "d-initial");
+     $('#infoReservation').append('<p id="expired">Vélo réservé à la station <span id="bookingStation"></span> par <span id="bookingFirstname"></span> <span id="bookingLastname"></span></p>');
+     $('#infoReservation').append('<p id="infoTime">Temps restant : <span id="bookingTime"></span></p>');
+
     //Get booking from local storage convert into object
     var booking = JSON.parse(localStorage.getItem('booking'));
 
@@ -144,22 +149,21 @@ function removeBooking() {
 }
 
 //This function update timer on html code
-function timeLeft() {
+function timeLeft(){
     var now = new Date(JSON.parse(localStorage.getItem('booking')).bookingtime);
     var endDate = new Date();
     var diff = endDate - now;
-    var minutes = 1 - (Math.ceil((diff % 3.6e6) / 6e4));
+    var minutes = 20 - (Math.ceil((diff % 3.6e6) / 6e4));
     var seconds = 60 - (Math.ceil((diff % 6e4) / 1000));
-
+     
     document.getElementById('bookingTime').textContent = minutes + " minutes et " + seconds + " secondes";
 
     //If there is no time, remove booking
     if (minutes <= 0 && seconds == 0) {
         removeBooking();
-        $("#infoReservation")
-            .html(
-                "Votre réservation a expirée"
-            );
+        $('#infoReservation').append('<p>Votre réservation a expirée</p>');
+        document.getElementById("expired").remove();
+        document.getElementById("infoTime").remove();
     }
 
 }
