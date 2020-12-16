@@ -71,7 +71,8 @@ var onMarkerClick = function(infos) {
 /************** SUBMIT FORM, SET AND OBJECT AND SAVE IT ON LOCAL STORAGE **************/
 /**************************************************************************************/
 document.getElementById("book").addEventListener("submit", submitForm);
-function submitForm() {
+function submitForm(event) {
+    event.preventDefault();
     //Get all value from the form
     var number = document.getElementById('number').value;
     var firstname = document.getElementById("lastname").value;
@@ -103,26 +104,53 @@ function submitForm() {
 /************** GET BOOKING FROM LOCAL STORAGE? VIEW HTML FOR BOOKING AND SET VALUE **************/
 /************************************************************************************************/
 function setHtmlBooking() {
-    document.getElementById('infoReservation').classList.replace("d-none", "d-initial");
-     $('#infoReservation').append('<p id="expired">Vélo réservé à la station <span id="bookingStation"></span> par <span id="bookingFirstname"></span> <span id="bookingLastname"></span></p>');
-     $('#infoReservation').append('<p id="infoTime">Temps restant : <span id="bookingTime"></span></p>');
-
+    var element = document.getElementById('infoReservation');
+    if(element){
+        element.remove();
+    }
     //Get booking from local storage convert into object
     var booking = JSON.parse(localStorage.getItem('booking'));
+    console.log(booking);
+
+    var parentDiv = document.createElement('div');
+    parentDiv.id = 'infoReservation';
+    document.getElementsByTagName('main')[0].appendChild(parentDiv);
+
+    var time = document.createElement('p');
+    time.id = 'infoTime';
+    var timeText = document.createTextNode("Temps restant : ");
+    var timeSpan = document.createElement('span');
+    timeSpan.id="bookingTime";
+    time.appendChild(timeText);
+    time.appendChild(timeSpan);
+    parentDiv.appendChild(time);
+
+    var infos=document.createElement('p');
+    infos.id="bookingInfos";
+    var infosText=document.createTextNode("Vélo réservé à la station ");
+    var infosSpan=document.createElement('span');
+    infosSpan.id="bookingStation";
+    var infosText2=document.createTextNode(" par ");
+    var infosSpan2=document.createElement('span');
+    infosSpan2.id="bookingName";
+    infosSpan2.innerHTML=booking.firstname + ' '  + booking.lastname
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            document.getElementById('bookingStation').textContent = JSON.parse(this.responseText).name;
+           infosSpan.innerHTML=JSON.parse(this.responseText).name;
         }
     };
     request.open("GET", "https://api.jcdecaux.com/vls/v3/stations/" + booking.number + "?contract=rouen&apiKey=fefa77128452c1aa0a3a63dd7a9f67bfcbcef4d5");
     request.send();
 
-    //Set html content
-    document.getElementById('bookingStation').textContent = booking.number;
-    document.getElementById('bookingFirstname').textContent = booking.firstname;
-    document.getElementById('bookingLastname').textContent = booking.lastname;
+    infos.appendChild(infosText);
+    infos.appendChild(infosSpan);
+    infos.appendChild(infosText2);
+    infos.appendChild(infosSpan2);
+
+    parentDiv.appendChild(infos);
+
     //Set timer first time
     timeLeft();
     //set interval to refresh timer every second
@@ -146,6 +174,13 @@ if (localStorage.getItem('booking') !=null) {
 //If timer is end, remove local storage and set message to expired
 function removeBooking() {
     localStorage.removeItem('booking');
+    document.getElementById("bookingInfos").remove();
+    document.getElementById("infoTime").remove();
+    var expired = document.createElement('p');
+    var expiredText = document.createTextNode("Votre réservation a expirée");
+    expired.appendChild(expiredText);
+
+    document.getElementById('infoReservation').appendChild(expired);
 }
 
 //This function update timer on html code
@@ -161,9 +196,5 @@ function timeLeft(){
     //If there is no time, remove booking
     if (minutes <= 0 && seconds == 0) {
         removeBooking();
-        $('#infoReservation').append('<p>Votre réservation a expirée</p>');
-        document.getElementById("expired").remove();
-        document.getElementById("infoTime").remove();
     }
-
 }
