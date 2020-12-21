@@ -7,6 +7,7 @@ class Canvas {
         this.ctx.strokeStyle = '#000000';
         this.ctx.lineWidth = 3;
         this.draw = false;
+        this.signaturePoints = 0;
         this.mousePosition = {
             x: 0,
             y: 0
@@ -23,19 +24,24 @@ class Canvas {
             self.lastPosition = self.getMposition(e);
             empty = true; //pour indiquer que le canvas est signé
             console.log(empty);
-            if (empty == true) {
-                document.getElementById('submitbutton').classList.replace("d-none", "d-initial");
-            }
         });
 
 
         this.canvas.addEventListener("mousemove", function (e) {
             self.mousePosition = self.getMposition(e);
             self.canvasResult();
+            self.signaturePoints++;
         });
 
         //quand le clic de la souris est relevé on ne "dessine plus"
-        document.addEventListener("mouseup", function (e) {
+        this.canvas.addEventListener("mouseup", function (e) {
+            self.draw = false;
+            if (self.signaturePoints >= 50) {
+                $('#book').append('<input type="submit" value="Reserver un velo" id="submitbutton"/>');
+            } else {
+                alert("La signature est trop courte")
+                self.clearCanvas();
+            }
             self.draw = false;
         });
 
@@ -80,10 +86,8 @@ class Canvas {
         this.canvas.width = this.canvas.width;
         this.ctx.lineWidth = 3;
         empty = false;
-        console.log(empty);
-        if (empty == false) {
-            document.getElementById('submitbutton').classList.replace("d-initial", "d-none");
-        }
+        this.signaturePoints = 0;
+        document.getElementById('submitbutton').remove();
     }
 }
 new Canvas();
