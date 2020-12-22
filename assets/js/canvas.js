@@ -23,7 +23,6 @@ class Canvas {
             self.draw = true;
             self.lastPosition = self.getMposition(e);
             empty = true; //pour indiquer que le canvas est sign�
-            console.log(empty);
         });
 
 
@@ -35,13 +34,19 @@ class Canvas {
 
         //quand le clic de la souris est relev� on ne "dessine plus"
         this.canvas.addEventListener("mouseup", function (e) {
-            if (self.signaturePoints >= 50) {
-                $('#book').append('<input type="submit" value="Reserver un velo" id="submitbutton"/>');
+            self.draw = false;
+            var element = document.getElementById('submitbutton');
+            if (self.signaturePoints >= 75) {
+                if(!element){
+                    var parentDiv = document.createElement('input');
+                    parentDiv.id = 'submitbutton';
+                    parentDiv.value = 'Reserver un velo';
+                    parentDiv.type = 'submit';
+                    document.getElementById('book').append(parentDiv);
+                }
             } else {
                 alert("La signature est trop courte")
-                self.clearCanvas();
             }
-            self.draw = false;
         });
 
         //Effacer    

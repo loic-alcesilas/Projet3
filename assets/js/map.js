@@ -46,13 +46,21 @@ var onMarkerClick = function(infos) {
     var booking = JSON.parse(localStorage.getItem('booking'));
 
     //MENTORAT
+    var available_bikes=infos.available_bikes;
     if (localStorage.getItem('booking') != null && booking.number == infos.number) {
-        infos.available_bikes--;
+        available_bikes=infos.available_bikes-1;
     }
 
+    if (localStorage.getItem('booking') != null ) {
+        var element = document.getElementById('alreadyreservation');
+        if(!element){
+            var parentDiv = document.createElement('p');
+            parentDiv.id = 'alreadyreservation';
+            var text = document.createTextNode("Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation");
+            parentDiv.appendChild(text);
+            document.getElementById('book').append(parentDiv);
+        }
 
-    if (localStorage.getItem('booking') != null) {
-        $('#book').append('<p id="alreadyreservation"> Vous avez déjà une réservation en cours, si vous cliquez sur le bouton réserver elle sera alors remplacée par cette nouvelle réservation</p>');
     } else{
         // document.getElementById("alreadyreservation").remove();
     }
@@ -62,7 +70,8 @@ var onMarkerClick = function(infos) {
     document.getElementById('stationAddress').textContent = (infos.address);
     document.getElementById('stationName').textContent = (infos.name);
     document.getElementById('stationStatus').textContent = (infos.status);
-    document.getElementById('stationBike').textContent = (infos.available_bikes + '/' + infos.bike_stands);
+    document.getElementById('stationBikeValue').textContent = (available_bikes );
+    document.getElementById('stationBikeTotal').textContent = (infos.bike_stands );
     document.getElementById('stationStand').textContent = (infos.available_bike_stands + '/' + infos.bike_stands);
     document.getElementById('number').value = infos.number;
 }
@@ -150,6 +159,9 @@ function setHtmlBooking() {
     infos.appendChild(infosSpan2);
 
     parentDiv.appendChild(infos);
+
+    var bikeValue=document.getElementById('stationBikeValue').textContent;
+    document.getElementById('stationBikeValue').innerHTML=parseInt(bikeValue)-1;
 
     //Set timer first time
     timeLeft();
