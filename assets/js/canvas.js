@@ -7,40 +7,41 @@ class Canvas {
         this.ctx.strokeStyle = '#000000';
         this.ctx.lineWidth = 3;
         this.draw = false;
+        this.signaturePoints = 0;
         this.mousePosition = {
             x: 0,
             y: 0
         };
         this.lastPosition = this.mousePosition;
-        this.signaturePoints = 0;
         this.eventListener();
     }
+    
+   
+
 
     eventListener() {
-
         //Souris
         let self = this;
         this.canvas.addEventListener("mousedown", function (e) {
             self.draw = true;
             self.lastPosition = self.getMposition(e);
-            empty = false; //pour indiquer que le canvas est sign�
+            empty = true; //pour indiquer que le canvas est sign�
             console.log(empty);
         });
 
 
         this.canvas.addEventListener("mousemove", function (e) {
-            self.signaturePoints++;
             self.mousePosition = self.getMposition(e);
             self.canvasResult();
+            self.signaturePoints++;
         });
 
         //quand le clic de la souris est relev� on ne "dessine plus"
-
         this.canvas.addEventListener("mouseup", function (e) {
-            if(self.signaturePoints >= 50){
-                $('#book').append('<input type="submit" value="Réserver un vélo" id="submitbutton"/>');
-            } else{
-                alert("La signature est trop courte");
+            if (self.signaturePoints >= 50) {
+                $('#book').append('<input type="submit" value="Reserver un velo" id="submitbutton"/>');
+            } else {
+                alert("La signature est trop courte")
                 self.clearCanvas();
             }
             self.draw = false;
@@ -48,9 +49,7 @@ class Canvas {
 
         //Effacer    
         document.getElementById("clearcanvas").addEventListener("click", function (e) {
-            document.getElementById("submitbutton").remove();
-            self.signaturePoints=0;
-            self.clearCanvas();
+            self.clearCanvas()
         });
     } // Fin eventListener()
 
@@ -88,8 +87,10 @@ class Canvas {
     clearCanvas() {
         this.canvas.width = this.canvas.width;
         this.ctx.lineWidth = 3;
-        empty = true;
-        console.log(empty);
+        empty = false;
+        this.signaturePoints = 0;
+        document.getElementById('submitbutton').remove();
     }
+
 }
 new Canvas();
