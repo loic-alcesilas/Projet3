@@ -23,6 +23,7 @@
 
 	<main class="container my-5">
 		<div class="row">
+			<h2 class="mb-4 text-center col-12">Comment utiliser les vélos ?</h2>
 			<div class="diapo position-relative col-12 p-0">
 				<div class="elements d-flex col-12 p-0 h-100">
 					<!-- Première diapo -->
@@ -71,13 +72,12 @@
 			</div>
 				<div class="col-md-4">
 					<div id="stationinfo" class="d-none col-md-12">
-						<h2 id="stationName" class="station-header border-bottom border-danger"></h2>
+						<h2  id="stationName"class="station-header border-bottom border-danger"></h2>
 						<h4> Adresse :</h4>
 						<p id="stationAddress"></p>
 						<h4> Status :</h4>
 						<p id="stationStatus"></p>
 						<h4>Vélos disponibles</h4>
-						<span id="nombredevelodisponibles"></span>
 						<p id="stationBike"></p>
 						<h4>Stands disponibles</h4>
 						<p id="stationStand"></p>
@@ -94,21 +94,14 @@
 								<div>
 									<input id="firstname" type="text" placeholder="Prénom" minlength="1" maxlength="14" size="14" />
 								</div>
-								<input type="hidden" id="number" />
+								<input type="hidden" id="number"/>
 								<canvas id="canvas"></canvas>
 								<input id="clearcanvas" type="button" name="name" value="Effacer la signature" />
-								<input type="submit" value="Réserver un vélo" id="submitbutton" class="d-none" />
-								<p id="alreadyreservation"></p>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-        <div id="infoReservation" class="d-none">
-			<p>Vélo réservé à la station <span id="bookingStation"></span> par <span id="bookingFirstname"></span> <span id="bookingLastname"></span></p>
-			<p class="d-initial" id="infoTime">Temps restant : <span id="bookingTime"></span></p>
-            <div class="hide" id="expired"></div>
-		</div>
 	</main>
 	<footer>
 		<img class="float-left" src="assets/img/logo.png" alt="logo" id="logo_footer" />

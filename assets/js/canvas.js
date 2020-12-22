@@ -22,7 +22,7 @@ class Canvas {
         this.canvas.addEventListener("mousedown", function (e) {
             self.draw = true;
             self.lastPosition = self.getMposition(e);
-            empty = true; //pour indiquer que le canvas est signé
+            empty = true; //pour indiquer que le canvas est signï¿½
             console.log(empty);
         });
 
@@ -33,9 +33,8 @@ class Canvas {
             self.signaturePoints++;
         });
 
-        //quand le clic de la souris est relevé on ne "dessine plus"
+        //quand le clic de la souris est relevï¿½ on ne "dessine plus"
         this.canvas.addEventListener("mouseup", function (e) {
-            self.draw = false;
             if (self.signaturePoints >= 50) {
                 $('#book').append('<input type="submit" value="Reserver un velo" id="submitbutton"/>');
             } else {
@@ -51,7 +50,7 @@ class Canvas {
         });
     } // Fin eventListener()
 
-    //renvoi les coordonnées de la souris
+    //renvoi les coordonnï¿½es de la souris
     getMposition(mouseEvent) {
         if (this.draw) {
             let oRect = document.getElementById("canvas").getBoundingClientRect();
@@ -62,7 +61,7 @@ class Canvas {
         }
     } //fin getMposition
 
-    // Renvoie les coordonnées du pad 
+    // Renvoie les coordonnï¿½es du pad 
     getTposition(touchEvent) {
         var oRect = this.canvas.getBoundingClientRect();
         return {
@@ -89,5 +88,6 @@ class Canvas {
         this.signaturePoints = 0;
         document.getElementById('submitbutton').remove();
     }
+
 }
 new Canvas();
