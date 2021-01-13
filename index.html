@@ -142,10 +142,10 @@
       <div class="row mt-4 align-items-center">
         <h2 class="text-center col-12">Louer un vélo !</h2>
         <div id="map-container" class="col-12">
-          <div id="maCarte" class="col-12"></div>
+          <div id="myMap" class="col-12"></div>
         </div>
         <div class="col-md-4">
-          <div id="stationinfo" class="d-none col-md-12">
+          <div id="stationinfo" class="d-none col-md-12"> <!-- to generate with JS -->
             <h2
               id="stationName"
               class="station-header border-bottom border-danger"
@@ -162,13 +162,16 @@
             </p>
             <h4>Stands disponibles</h4>
             <p id="stationStand"></p>
-            <div id="reservation">
-              <h3 class="border-bottom border-danger">Réservation</h3>
-              <form action="/" method="post" id="book">
-                <label for="lastname">Votre nom</label>
-                <br />
-                <div>
-                  <input
+          </div>
+        </div>
+      </div>
+      <div id="reservation">
+        <h3 class="border-bottom border-danger">Réservation</h3>
+        <form action="/" method="post" id="book">
+          <label for="lastname">Votre nom</label>
+          <br />
+          <div>
+            <input
                     id="lastname"
                     type="text"
                     name="nom"
@@ -176,32 +179,29 @@
                     minlength="1"
                     maxlength="14"
                     size="14"
-                  />
-                </div>
-                <label for="firstname">Votre prénom</label>
-                <br />
-                <div>
-                  <input
+            />
+          </div>
+          <label for="firstname">Votre prénom</label>
+          <br />
+          <div>
+            <input
                     id="firstname"
                     type="text"
                     placeholder="Prénom"
                     minlength="1"
                     maxlength="14"
                     size="14"
-                  />
-                </div>
-                <input type="hidden" id="number" />
-                <canvas id="canvas"></canvas>
-                <input
+            />
+          </div>
+          <input type="hidden" id="number" />
+          <canvas id="canvas"></canvas>
+          <input
                   id="clearcanvas"
                   type="button"
                   name="name"
                   value="Effacer la signature"
-                />
-              </form>
-            </div>
-          </div>
-        </div>
+          />
+        </form>
       </div>
     </main>
     <footer>

@@ -2,7 +2,7 @@
 /************************************/
 /************** SET MAP ************/
 /************************************/
-var map = L.map('maCarte').setView([49.4431, 1.0993], 16);
+var map = L.map('myMap').setView([49.4431, 1.0993], 16);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibG9pY29jIiwiYSI6ImNrZmkyNG13ajAycWgzMHFqanBvN3J5MTAifQ.AEuScT5GN9h-CXKSd69VFA', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -37,20 +37,21 @@ request.onreadystatechange = function () {
 request.open("GET", "https://api.jcdecaux.com/vls/v1/stations?contract=rouen&apiKey=fefa77128452c1aa0a3a63dd7a9f67bfcbcef4d5");
 request.send();
 
-/************************************************************/
-/************** SET HTML STATION INFOS AND FORM ************/
-/***********************************************************/
+/************************************************************************************/
+/************** SET HTML STATION INFOS AND FORM WHEN WE CLICK ON MARKER ************/
+/***********************************************************************************/
 var onMarkerClick = function(infos) {
 
-    //MENTORAT
+    //Get booking on local storage
     var booking = JSON.parse(localStorage.getItem('booking'));
 
-    //MENTORAT
+    //Set available_bike, remove one if book
     var available_bikes=infos.available_bikes;
     if (localStorage.getItem('booking') != null && booking.number == infos.number) {
         available_bikes=infos.available_bikes-1;
     }
 
+    //Test if there is a booking, then generate a message
     if (localStorage.getItem('booking') != null ) {
         var element = document.getElementById('alreadyreservation');
         if(!element){
@@ -60,14 +61,13 @@ var onMarkerClick = function(infos) {
             parentDiv.appendChild(text);
             document.getElementById('book').append(parentDiv);
         }
-
-    } else{
-        // document.getElementById("alreadyreservation").remove();
     }
 
-    var tailleCarte = document.getElementById('maCarte');
-    tailleCarte.style.height = '780px';
 
+    var mapElement = document.getElementById('myMap');
+    mapElement.style.height = '780px';
+
+    //Set station infos
     document.getElementById('stationinfo').classList.replace("d-none", "d-initial");
     document.getElementById('map-container').classList.replace("col-12", "col-8");
     document.getElementById('stationAddress').textContent = (infos.address);
@@ -84,36 +84,35 @@ var onMarkerClick = function(infos) {
 /**************************************************************************************/
 document.getElementById("book").addEventListener("submit", submitForm);
 function submitForm(event) {
+    //Remove default comportment of click
     event.preventDefault();
+
     //Get all value from the form
     var number = document.getElementById('number').value;
     var firstname = document.getElementById("lastname").value;
     var lastname = document.getElementById("firstname").value;
 
-    // Secure that firstname and lastname are not empty
-    var Nom = document.getElementById('lastname').value;
-    var Prénom = document.getElementById('firstname').value;
-    // Contrôle sur le nom
-    if (Nom.length == 0 || Prénom.length == 0) {
+    //Check firstname and lastname not empty
+    if (firstname.length == 0 || lastname.length == 0) {
         alert('Vous devez compléter votre nom et prénom !');
         return false;
     }
-    //TEST IF CANVAS SIGNATURE IS TRUE, ELSE ALERT AND RETURN FALSE
 
     //Set an object with values
     var object = {
         number: number,
-        firstname: firstname,
-        lastname: lastname,
+        firstname: firstname.value,
+        lastname: lastname.value,
         bookingtime: Date.now()
     }
+
     //Set object into local storage convert into string
     localStorage.setItem("booking", JSON.stringify(object));
     setHtmlBooking();
 }
 
 /*************************************************************************************************/
-/************** GET BOOKING FROM LOCAL STORAGE? VIEW HTML FOR BOOKING AND SET VALUE **************/
+/************** GET BOOKING FROM LOCAL STORAGE VIEW HTML FOR BOOKING AND SET VALUE **************/
 /************************************************************************************************/
 function setHtmlBooking() {
     var element = document.getElementById('infoReservation');
