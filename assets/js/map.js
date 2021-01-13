@@ -65,6 +65,9 @@ var onMarkerClick = function(infos) {
         // document.getElementById("alreadyreservation").remove();
     }
 
+    var tailleCarte = document.getElementById('maCarte');
+    tailleCarte.style.height = '780px';
+
     document.getElementById('stationinfo').classList.replace("d-none", "d-initial");
     document.getElementById('map-container').classList.replace("col-12", "col-8");
     document.getElementById('stationAddress').textContent = (infos.address);

@@ -24,7 +24,6 @@ window.onload = () => {
     pause.addEventListener("click", slidePause);
     play.addEventListener("click", slidePlay);
 
-
     // RESPONSIVE 
     window.addEventListener("resize", () => {
         slideWidth = diapo.getBoundingClientRect().width;

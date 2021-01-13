@@ -1,6 +1,7 @@
 /*GENERALS RULS*/
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: whitesmoke;
 }
 
 
@@ -8,16 +9,72 @@ body {
 header {
     background: linear-gradient(45deg,#bad5dc 45%, #b4b4af 100%);
 }
+.navbar {
+    box-shadow: 10px 10px 10px -9px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+    border-bottom: 3px solid #40a3bd;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+header ul li a {
+    color:rgba(0,0,0,.6) 
+}
+
+img {
+    height: 110px;
+}
+
+#menu{
+    height: 100px;
+}
+/*description*/
+h2 {
+    text-align: center;
+    color: #131313;
+    font-weight: 900;
+    font-size: 3em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+#description {
+    padding-top: 120px;
+    position: relative;
+    padding-bottom: 110px;
+}
+
+#title {
+    overflow: hidden;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
 
 
 /*DIAPORAMA*/
 .diapo {
     overflow: hidden;
-    height:300px;
+    height: 400px;
 }
 
 #nav-droite, #nav-gauche {
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     color: white;
     font-size: 3em;
@@ -57,7 +114,7 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #b5bab7;
+    background-color: whitesmoke;
     opacity: 0.9;
     border-radius: 15px;
 }
@@ -161,6 +218,9 @@ footer {
     h2{
         font-size: 1em;
     }
+    h3{
+        font-size: 1.5em;
+    }
 
     .play_controls {
         font-size: 2em;
@@ -181,7 +241,12 @@ footer {
 
     .caption {
         width: 100%;
-        font-size: 13px;
+        top: 39%;
+        font-size: 10px;
+    }
+
+    .diapo{
+        height: 300px;
     }
 }
 
