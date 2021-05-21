@@ -1,7 +1,7 @@
 /*GENERALS RULS*/
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: whitesmoke;
+    background-color: #f5f1f1;
 }
 
 
@@ -16,7 +16,7 @@ header {
 }
 .fixed-top {
     position: fixed;
-    top: 0;
+    top: -30px;
     right: 0;
     left: 0;
     z-index: 1000;
@@ -43,7 +43,7 @@ h2 {
 }
 
 #description {
-    padding-top: 120px;
+    padding-top: 100px;
     position: relative;
     padding-bottom: 110px;
 }

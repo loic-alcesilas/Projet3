@@ -48,6 +48,7 @@ function slideNext() {
     if(compteur == slides.length) {
         compteur = 0;
     }
+    // Permet de deplacer horizontalement le diaporama
     let decal = -slideWidth * compteur;
     elements.style.transform = `translateX(${decal}px)`;
 }

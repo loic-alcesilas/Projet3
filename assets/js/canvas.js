@@ -22,7 +22,7 @@ class Canvas {
         this.canvas.addEventListener("mousedown", function (e) {
             self.draw = true;
             self.lastPosition = self.getMposition(e);
-            empty = true; //pour indiquer que le canvas est sign�
+            empty = true; //pour indiquer que le canvas est signe
         });
 
 
@@ -32,9 +32,11 @@ class Canvas {
             self.signaturePoints++;
         });
 
-        //quand le clic de la souris est relev� on ne "dessine plus"
+        //quand le clic de la souris est releve on ne "dessine plus"
         this.canvas.addEventListener("mouseup", function (e) {
             self.draw = false;
+
+            //boucle qui permet d'avoir un message d'alerte si la signature est trop courte 
             var element = document.getElementById('submitbutton');
             if (self.signaturePoints >= 75) {
                 if(!element){
@@ -55,7 +57,7 @@ class Canvas {
         });
     } // Fin eventListener()
 
-    //renvoi les coordonn�es de la souris
+    //renvoi les coordonnees de la souris
     getMposition(mouseEvent) {
         if (this.draw) {
             let oRect = document.getElementById("canvas").getBoundingClientRect();
@@ -66,7 +68,7 @@ class Canvas {
         }
     } //fin getMposition
 
-    // Renvoie les coordonn�es du pad 
+    // Renvoie les coordonnees du pad 
     getTposition(touchEvent) {
         var oRect = this.canvas.getBoundingClientRect();
         return {

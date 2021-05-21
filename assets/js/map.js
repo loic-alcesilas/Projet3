@@ -42,15 +42,15 @@ request.send();
 /***********************************************************/
 var onMarkerClick = function(infos) {
 
-    //MENTORAT
+    // on creer une variable qui recupere les donnes de reservation
     var booking = JSON.parse(localStorage.getItem('booking'));
 
-    //MENTORAT
+    // Si une reservation est effectuer on enleve un velo 
     var available_bikes=infos.available_bikes;
     if (localStorage.getItem('booking') != null && booking.number == infos.number) {
         available_bikes=infos.available_bikes-1;
     }
-
+    // si il ya reservation alerter l'utilisateur quelle sera supprimer si une nouvelle est enregistrer
     if (localStorage.getItem('booking') != null ) {
         var element = document.getElementById('alreadyreservation');
         if(!element){
@@ -60,14 +60,26 @@ var onMarkerClick = function(infos) {
             parentDiv.appendChild(text);
             document.getElementById('book').append(parentDiv);
         }
-
     } else{
-        // document.getElementById("alreadyreservation").remove();
+       // document.getElementById("alreadyreservation").remove();
     }
 
     var tailleCarte = document.getElementById('maCarte');
     tailleCarte.style.height = '780px';
 
+    // ajuster la taille de la carte a celle de l'écran
+    function resizePage()
+{
+    var Largeur = $(window).width();
+    if(Largeur < 1200) {
+        var tailleCarte = document.getElementById('maCarte');
+        tailleCarte.style.height = '500px';
+    }
+}
+$(window).resize(resizePage);
+resizePage(); // Appel de la fonction à l'affichage de la page.
+
+    // recuperation des infos dans le html 
     document.getElementById('stationinfo').classList.replace("d-none", "d-initial");
     document.getElementById('map-container').classList.replace("col-12", "col-8");
     document.getElementById('stationAddress').textContent = (infos.address);
@@ -85,12 +97,12 @@ var onMarkerClick = function(infos) {
 document.getElementById("book").addEventListener("submit", submitForm);
 function submitForm(event) {
     event.preventDefault();
-    //Get all value from the form
+    // recuperation des valeur du Form 
     var number = document.getElementById('number').value;
     var firstname = document.getElementById("lastname").value;
     var lastname = document.getElementById("firstname").value;
 
-    // Secure that firstname and lastname are not empty
+    // Securiser que le nom et prenom ne soit pas vide
     var Nom = document.getElementById('lastname').value;
     var Prénom = document.getElementById('firstname').value;
     // Contrôle sur le nom
@@ -98,16 +110,16 @@ function submitForm(event) {
         alert('Vous devez compléter votre nom et prénom !');
         return false;
     }
-    //TEST IF CANVAS SIGNATURE IS TRUE, ELSE ALERT AND RETURN FALSE
-
-    //Set an object with values
+   
+    //Mise en place d'un object et ses valeurs
     var object = {
         number: number,
         firstname: firstname,
         lastname: lastname,
         bookingtime: Date.now()
     }
-    //Set object into local storage convert into string
+  
+    //Mise en place de l'object dans le local storage convertit en character
     localStorage.setItem("booking", JSON.stringify(object));
     setHtmlBooking();
 }
@@ -116,27 +128,33 @@ function submitForm(event) {
 /************** GET BOOKING FROM LOCAL STORAGE? VIEW HTML FOR BOOKING AND SET VALUE **************/
 /************************************************************************************************/
 function setHtmlBooking() {
+    // si il ya deja une reservation on la remove
     var element = document.getElementById('infoReservation');
     if(element){
         element.remove();
     }
-    //Get booking from local storage convert into object
+    //On prend le booking du local storage pour le convertir en object
     var booking = JSON.parse(localStorage.getItem('booking'));
     console.log(booking);
 
+    // on creer la div infoReservation et on la place 
     var parentDiv = document.createElement('div');
     parentDiv.id = 'infoReservation';
     document.getElementsByTagName('main')[0].appendChild(parentDiv);
 
+    // on ajoute le compteur BookingTime au panneau reservation 
     var time = document.createElement('p');
     time.id = 'infoTime';
     var timeText = document.createTextNode("Temps restant : ");
     var timeSpan = document.createElement('span');
-    timeSpan.id="bookingTime";
+    timeSpan.id = "bookingTime";
+
+    
     time.appendChild(timeText);
     time.appendChild(timeSpan);
     parentDiv.appendChild(time);
 
+    // on ajoute la station,nom et prenom au panneau de reservation 
     var infos=document.createElement('p');
     infos.id="bookingInfos";
     var infosText=document.createTextNode("Vélo réservé à la station ");
@@ -147,6 +165,7 @@ function setHtmlBooking() {
     infosSpan2.id="bookingName";
     infosSpan2.innerHTML=booking.firstname + ' '  + booking.lastname
 
+    // on appel l'api pour avoir le numero de station
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
@@ -166,16 +185,17 @@ function setHtmlBooking() {
     var bikeValue=document.getElementById('stationBikeValue').textContent;
     document.getElementById('stationBikeValue').innerHTML=parseInt(bikeValue)-1;
 
-    //Set timer first time
+    //On execute la fonction du timer 
     timeLeft();
-    //set interval to refresh timer every second
+    //rafraichir le timer toutes les secondes
     setInterval(timeLeft, 1000);
 }
 
 /*************************************************************************************************/
 /************** SET HTML BOOKING IF THERE IS SOME BOOKING IN LOCAL STORAGE **********************/
 /************************************************************************************************/
-//if local storage exist, set html and set interval to refresh every seconds
+
+//si il ya un local storage set html et set interval pour rafraichir toutes les secondes
 if (localStorage.getItem('booking') !=null) {
     setHtmlBooking();
     timeLeft();
@@ -186,7 +206,8 @@ if (localStorage.getItem('booking') !=null) {
 /************** COMPTEUR **********************/
 /**********************************************/
 
-//If timer is end, remove local storage and set message to expired
+
+//quand le timer est fini remove local storage et message d'expiration
 function removeBooking() {
     localStorage.removeItem('booking');
     document.getElementById("bookingInfos").remove();
@@ -198,7 +219,8 @@ function removeBooking() {
     document.getElementById('infoReservation').appendChild(expired);
 }
 
-//This function update timer on html code
+
+//cette function met a jour le timer du code html 
 function timeLeft(){
     var now = new Date(JSON.parse(localStorage.getItem('booking')).bookingtime);
     var endDate = new Date();
@@ -208,7 +230,7 @@ function timeLeft(){
 
     document.getElementById('bookingTime').textContent = minutes + " minutes et " + seconds + " secondes";
 
-    //If there is no time, remove booking
+    //quand le timer est a 0 executer la function remove booking
     if (minutes <= 0 && seconds == 0) {
         removeBooking();
     }

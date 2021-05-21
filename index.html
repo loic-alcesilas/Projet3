@@ -1,233 +1,194 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
-  <head>
+<head>
     <title>Location de vélos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet"
+          href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+          crossorigin="anonymous" />
     <link rel="icon" href="assets/img/favicon.ico" />
     <link rel="stylesheet" href="assets/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-      crossorigin=""
-    />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin="" />
     <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header class="container-fluid pb-1 navbar fixed-top" id="menu">
-      <div class="container text-center">
-        <img src="assets/img/logo.png" alt="logo" id="logo" />
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link" href="#diapo"> Comment ça marche ?</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#maCarte">Cartes des vélos</a>
-          </li>
-        </ul>
-      </div>
+        <div class="container text-center">
+            <img src="assets/img/logo.png" alt="logo" id="logo" />
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#diapo"> Comment ça marche ?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#maCarte">Cartes des vélos</a>
+                </li>
+            </ul>
+        </div>
     </header>
     <main class="container my-5">
-      <div class="row">
-        <div class="text-center" id="description">
-          <h2 class="mb-5 text col-12" id="title">
-            BIENVENUE SUR<br />
-            GO VELO !
-          </h2>
-          <p class="text-info text-center pb-3">
-            Notre réseau de location de vélo en libre service vous permettra de
-            parcourir la ville de Rouen facilement. Comment faire ? Rien de plus
-            simple : sélectionnez une station, réservez un vélo ! Pour plus de
-            detail cliquez sur le bouton !
-          </p>
-          <a class="btn btn-outline-secondary" href="#diapo"
-            >Découvrir le service</a
-          >
-        </div>
-        <div class="diapo position-relative col-12 p-0" id="diapo">
-          <h2 class="mb-3 text-center col-12">Comment ça marche ?</h2>
-          <div class="elements d-flex col-12 p-0 h-100">
-            <!-- Première diapo -->
-            <div class="element position-relative col-12 p-0 h-100">
-              <img
-                class="col-12 p-0 h-100"
-                src="assets/img/fond.png"
-                alt="slide1"
-              />
-              <div class="caption p-3 text-center position-absolute col-6 p-0">
-                <h3>
-                  <i class="fas fa-map-marker-alt"></i> Choix de la station
-                </h3>
-                <p>
-                  Veuillez choisir votre station sur la carte de Rouen si
-                  dessous
+        <div class="row">
+            <div class="text-center" id="description">
+                <h2 class="mb-5 text col-12" id="title">
+                    BIENVENUE SUR<br />
+                    GO VELO !
+                </h2>
+                <p class="text-info text-center pb-3">
+                    Notre réseau de location de vélo en libre service vous permettra de
+                    parcourir la ville de Rouen facilement. Comment faire ? Rien de plus
+                    simple : sélectionnez une station, réservez un vélo ! Pour plus de
+                    detail cliquez sur le bouton !
                 </p>
-              </div>
+                <a class="btn btn-outline-secondary" href="#diapo">Découvrir le service</a>
             </div>
-            <!-- Deuxième diapo -->
-            <div class="element position-relative col-12 p-0 h-100">
-              <img
-                class="col-12 p-0 h-100"
-                src="assets/img/fond.png"
-                alt="slide2"
-              />
-              <div class="caption p-3 text-center position-absolute col-6">
-                <h3>
-                  <i class="fas fa-info-circle"></i> Informations de la station
-                </h3>
-                <p>
-                  Aprés avoir cliqué sur un marqueur vous verrez les
-                  informations concernant la station.
-                </p>
-              </div>
-            </div>
-            <!-- Troisième diapo-->
-            <div class="element position-relative col-12 p-0 h-100">
-              <img
-                class="col-12 p-0 h-100"
-                src="assets/img/fond.png"
-                alt="slide3"
-              />
-              <div class="caption p-3 text-center position-absolute col-6">
-                <h3>
-                  <i class="fas fa-address-book"></i> Remplir le formulaire
-                </h3>
-                <p>
-                  Aprés avoir choisit votre station veuillez remplir votre nom
-                  ,prénom et signez dans le cadre blanc pour réserver !
-                </p>
-              </div>
-            </div>
-            <!-- Quatrième diapo-->
-            <div class="element position-relative col-12 p-0 h-100">
-              <img
-                class="col-12 p-0 h-100"
-                src="assets/img/fond.png"
-                alt="slide4"
-              />
-              <div class="caption p-3 text-center position-absolute col-6">
-                <h3>
-                  <i class="fas fa-stopwatch-20"></i> Votre vélo est réservé
-                </h3>
-                <p>
-                  Aprés avoir cliquez sur le button, votre vélo est donc
-                  disponible pendant 20min.
-                </p>
-              </div>
-            </div>
-          </div>
-          <i id="nav-gauche" class="position-absolute fas fa-chevron-left"></i>
-          <i id="nav-droite" class="position-absolute fas fa-chevron-right"></i>
-          <i
-            id="pause"
-            class="position-absolute play_controls far fa-pause-circle"
-          ></i>
-          <i
-            id="play"
-            class="position-absolute d-none play_controls far fa-play-circle"
-          ></i>
-        </div>
-      </div>
-      <div class="row mt-4 align-items-center">
-        <h2 class="text-center col-12">Louer un vélo !</h2>
-        <div id="map-container" class="col-12">
-          <div id="maCarte" class="col-12"></div>
-        </div>
-        <div class="col-md-4">
-          <div id="stationinfo" class="d-none col-md-12">
-            <h2
-              id="stationName"
-              class="station-header border-bottom border-danger"
-            ></h2>
-            <h4>Adresse :</h4>
-            <p id="stationAddress"></p>
-            <h4>Status :</h4>
-            <p id="stationStatus"></p>
-            <h4>Vélos disponibles</h4>
-            <p id="stationBike">
-              <span id="stationBikeValue"></span>/<span
-                id="stationBikeTotal"
-              ></span>
-            </p>
-            <h4>Stands disponibles</h4>
-            <p id="stationStand"></p>
-            <div id="reservation">
-              <h3 class="border-bottom border-danger">Réservation</h3>
-              <form action="/" method="post" id="book">
-                <label for="lastname">Votre nom</label>
-                <br />
-                <div>
-                  <input
-                    id="lastname"
-                    type="text"
-                    name="nom"
-                    placeholder="Nom"
-                    minlength="1"
-                    maxlength="14"
-                    size="14"
-                  />
+            <div class="diapo position-relative col-12 p-0" id="diapo">
+                <h2 class="mb-3 text-center col-12">Comment ça marche ?</h2>
+                <div class="elements d-flex col-12 p-0 h-100">
+                    <!-- Première diapo -->
+                    <div class="element position-relative col-12 p-0 h-100">
+                        <img class="col-12 p-0 h-100"
+                             src="assets/img/fond.png"
+                             alt="slide1" />
+                        <div class="caption p-3 text-center position-absolute col-6 p-0">
+                            <h3>
+                                <i class="fas fa-map-marker-alt"></i> Choix de la station
+                            </h3>
+                            <p>
+                                Veuillez choisir votre station sur la carte de Rouen si
+                                dessous
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Deuxième diapo -->
+                    <div class="element position-relative col-12 p-0 h-100">
+                        <img class="col-12 p-0 h-100"
+                             src="assets/img/fond.png"
+                             alt="slide2" />
+                        <div class="caption p-3 text-center position-absolute col-6">
+                            <h3>
+                                <i class="fas fa-info-circle"></i> Informations de la station
+                            </h3>
+                            <p>
+                                Aprés avoir cliqué sur un marqueur vous verrez les
+                                informations concernant la station.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Troisième diapo-->
+                    <div class="element position-relative col-12 p-0 h-100">
+                        <img class="col-12 p-0 h-100"
+                             src="assets/img/fond.png"
+                             alt="slide3" />
+                        <div class="caption p-3 text-center position-absolute col-6">
+                            <h3>
+                                <i class="fas fa-address-book"></i> Remplir le formulaire
+                            </h3>
+                            <p>
+                                Aprés avoir choisit votre station veuillez remplir votre nom
+                                ,prénom et signez dans le cadre blanc pour réserver !
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Quatrième diapo-->
+                    <div class="element position-relative col-12 p-0 h-100">
+                        <img class="col-12 p-0 h-100"
+                             src="assets/img/fond.png"
+                             alt="slide4" />
+                        <div class="caption p-3 text-center position-absolute col-6">
+                            <h3>
+                                <i class="fas fa-stopwatch-20"></i> Votre vélo est réservé
+                            </h3>
+                            <p>
+                                Aprés avoir cliquez sur le button, votre vélo est donc
+                                disponible pendant 20min.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <label for="firstname">Votre prénom</label>
-                <br />
-                <div>
-                  <input
-                    id="firstname"
-                    type="text"
-                    placeholder="Prénom"
-                    minlength="1"
-                    maxlength="14"
-                    size="14"
-                  />
-                </div>
-                <input type="hidden" id="number" />
-                <canvas id="canvas"></canvas>
-                <input
-                  id="clearcanvas"
-                  type="button"
-                  name="name"
-                  value="Effacer la signature"
-                />
-              </form>
+                <i id="nav-gauche" class="position-absolute fas fa-chevron-left"></i>
+                <i id="nav-droite" class="position-absolute fas fa-chevron-right"></i>
+                <i id="pause"
+                   class="position-absolute play_controls far fa-pause-circle"></i>
+                <i id="play"
+                   class="position-absolute d-none play_controls far fa-play-circle"></i>
             </div>
-          </div>
         </div>
-      </div>
+        <div class="row mt-4 align-items-center">
+            <h2 class="text-center col-12">Louer un vélo !</h2>
+            <div id="map-container" class="col-12">
+                <div id="maCarte" class="col-12"></div>
+            </div>
+            <div class="col-md-4">
+                <div id="stationinfo" class="d-none col-md-12">
+                    <p id="stationName" class="station-header border-bottom border-danger"></p>
+                    <h4>Adresse :</h4>
+                    <p id="stationAddress"></p>
+                    <h4>Status :</h4>
+                    <p id="stationStatus"></p>
+                    <h4>Vélos disponibles</h4>
+                    <p id="stationBike">
+                        <span id="stationBikeValue"></span>/<span id="stationBikeTotal"></span>
+                    </p>
+                    <h4>Stands disponibles</h4>
+                    <p id="stationStand"></p>
+                    <div id="reservation">
+                        <h3 class="border-bottom border-danger">Réservation</h3>
+                        <form action="/" method="post" id="book">
+                            <label for="lastname">Votre nom</label>
+                            <br />
+                            <div>
+                                <input id="lastname"
+                                       type="text"
+                                       name="nom"
+                                       placeholder="Nom"
+                                       minlength="1"
+                                       maxlength="14"
+                                       size="14" />
+                            </div>
+                            <label for="firstname">Votre prénom</label>
+                            <br />
+                            <div>
+                                <input id="firstname"
+                                       type="text"
+                                       placeholder="Prénom"
+                                       minlength="1"
+                                       maxlength="14"
+                                       size="14" />
+                            </div>
+                            <input type="hidden" id="number" />
+                            <canvas id="canvas"></canvas>
+                            <input id="clearcanvas"
+                                   type="button"
+                                   name="name"
+                                   value="Effacer la signature" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
-      <img
-        class="float-left"
-        src="assets/img/logo.png"
-        alt="logo"
-        id="logo_footer"
-      />
+        <img class="float-left"
+             src="assets/img/logo.png"
+             alt="logo"
+             id="logo_footer" />
     </footer>
-    <script
-      src="https://kit.fontawesome.com/187226f4bc.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
-    ></script>
+    <script src="https://kit.fontawesome.com/187226f4bc.js"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
     <script src="assets/js/map.js"></script>
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/canvas.js"></script>
-  </body>
+</body>
 </html>
