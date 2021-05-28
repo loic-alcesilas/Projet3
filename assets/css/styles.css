@@ -1,5 +1,5 @@
 /*GENERALS RULS*/
-body {
+body{
     font-family: 'Poppins', sans-serif;
     background-color: #f5f1f1;
 }
@@ -121,7 +121,6 @@ h2 {
 
 /*Carte et panneau d'information*/
 #maCarte {
-    height: 500px;
     border-radius: 10px;
 }
 
@@ -210,6 +209,22 @@ footer {
 
 
 /*Responsive*/
+
+#maCarte {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative; 
+    height:0;
+}
+
+    #maCarte {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+
 @media (min-width: 220px) {
     h1{
         font-size: 1em;

@@ -71,7 +71,7 @@ var onMarkerClick = function(infos) {
     function resizePage()
 {
     var Largeur = $(window).width();
-    if(Largeur < 1200) {
+    if(Largeur < 900) {
         var tailleCarte = document.getElementById('maCarte');
         tailleCarte.style.height = '500px';
     }
@@ -110,7 +110,7 @@ function submitForm(event) {
         alert('Vous devez compléter votre nom et prénom !');
         return false;
     }
-   
+
     //Mise en place d'un object et ses valeurs
     var object = {
         number: number,

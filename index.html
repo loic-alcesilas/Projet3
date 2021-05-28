@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <title>Location de vélos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -149,7 +149,9 @@
                                        placeholder="Nom"
                                        minlength="1"
                                        maxlength="14"
-                                       size="14" />
+                                       size="14" 
+                                       onkeydown="if(event.keyCode==32) return false;"
+                                       />
                             </div>
                             <label for="firstname">Votre prénom</label>
                             <br />
@@ -159,7 +161,8 @@
                                        placeholder="Prénom"
                                        minlength="1"
                                        maxlength="14"
-                                       size="14" />
+                                       size="14" 
+                                       onkeydown="if(event.keyCode==32) return false;"/>
                             </div>
                             <input type="hidden" id="number" />
                             <canvas id="canvas"></canvas>
