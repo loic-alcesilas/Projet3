@@ -60,8 +60,6 @@ var onMarkerClick = function(infos) {
             parentDiv.appendChild(text);
             document.getElementById('book').append(parentDiv);
         }
-    } else{
-       // document.getElementById("alreadyreservation").remove();
     }
 
     var tailleCarte = document.getElementById('maCarte');
@@ -71,9 +69,9 @@ var onMarkerClick = function(infos) {
     function resizePage()
 {
     var Largeur = $(window).width();
-    if(Largeur < 900) {
+    if(Largeur < 768) {
         var tailleCarte = document.getElementById('maCarte');
-        tailleCarte.style.height = '500px';
+        tailleCarte.style.height = '300px';
     }
 }
 $(window).resize(resizePage);

@@ -172,6 +172,7 @@ input[type="submit"] {
     background-color: white;
     margin-top: 10px;
     border-radius: 10px;
+    width: 100%;
     cursor: default;
 }
 
@@ -225,6 +226,7 @@ footer {
     }
 
 
+
 @media (min-width: 220px) {
     h1{
         font-size: 1em;
@@ -263,6 +265,20 @@ footer {
     .diapo{
         height: 300px;
     }
+
+    #logo {
+        margin: auto;
+    }
+
+    #clearcanvas{
+        font-size: 10px;
+    }
+
+    #submitbutton {
+        font-size: 10px;
+    }
+
+
 }
 
 @media (min-width: 320px) {
@@ -287,6 +303,23 @@ footer {
         width: 50%;
         font-size: 13px;
     }
+
+    .nav-link {
+        visibility: hidden;
+    }
+
+    #logo {
+        margin: auto;
+    }
+
+    #clearcanvas {
+        font-size: 17px;
+    }
+    #submitbutton {
+        font-size: 17px;
+    }
+
+
 }
 
 @media (min-width: 576px) {
@@ -306,6 +339,23 @@ footer {
         width: 50%;
         font-size: 15px;
     }
+
+    .nav-link {
+        visibility: initial;
+    }
+
+    #logo {
+        margin: initial;
+    }
+
+    #clearcanvas {
+        font-size: 17px;
+    }
+
+    #submitbutton {
+        font-size: 17px;
+    }
+
 }
 
 @media (min-width: 768px) {
@@ -324,4 +374,28 @@ footer {
     .caption {
         font-size: 17px;
     }
+    .nav-link {
+        visibility: initial;
+    }
+
+    #clearcanvas {
+        font-size: 15px;
+    }
+
+    #submitbutton {
+        font-size: 15px;
+    }
+
+}
+
+@media (min-width: 1000px) {
+
+    #clearcanvas {
+        font-size: 17px;
+    }
+
+    #submitbutton {
+        font-size: 17px;
+    }
+
 }
