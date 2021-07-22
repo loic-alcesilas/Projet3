@@ -1,5 +1,5 @@
 /*GENERALS RULS*/
-body{
+body {
     font-family: 'Poppins', sans-serif;
     background-color: #f5f1f1;
 }
@@ -9,11 +9,13 @@ body{
 header {
     background: linear-gradient(45deg,#bad5dc 45%, #b4b4af 100%);
 }
+
 .navbar {
     box-shadow: 10px 10px 10px -9px rgba(0, 0, 0, 0.75);
     overflow: hidden;
     border-bottom: 3px solid #40a3bd;
 }
+
 .fixed-top {
     position: fixed;
     top: -30px;
@@ -21,15 +23,16 @@ header {
     left: 0;
     z-index: 1000;
 }
+
 header ul li a {
-    color:rgba(0,0,0,.6) 
+    color: rgba(0,0,0,.6)
 }
 
 img {
     height: 110px;
 }
 
-#menu{
+#menu {
     height: 100px;
 }
 /*description*/
@@ -68,55 +71,128 @@ h2 {
 
 
 /*DIAPORAMA*/
-.diapo {
-    overflow: hidden;
-    height: 400px;
+#diaporama {
+    position: relative;
+    width: 40%;
+    min-width: 320px; /* Le diaporama gardera une taille minimum de 320px */
+    margin: 2% auto; /* Centre le diaporama */
 }
 
-#nav-droite, #nav-gauche {
-    top: 60%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 3em;
+#caroussel {
+    position: relative;
+    width: 85%;
+    height: 31vh; /* Une hauteur en vh permet de garder le diaporama en bonne hauteur sur chaque résolution */
+    margin: 0 auto;
+    border: 10px solid #c0c0c0;
+    border-radius: 8px;
+}
+
+#caroussel figure {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 2s;
+    }
+
+#caroussel figure + figure {
+            opacity: 0; /* Fait disparétre toutes les images sauf la première */
+        }
+
+#caroussel figure img {
+            width: 100%;
+            height: 100%;
+        }
+
+#caroussel figcaption {
+        position: absolute;
+        left: 0;
+        right: 0; /* La légende occupera toute la largeur de l'image */
+        background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
+        color: #fff;
+        font-size: 3vh;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    /*-- Placement des différentes légendes sur les image --*/
+#caroussel figure:nth-child(1) figcaption {
+        top: 20%;
+    }
+
+#caroussel figure:nth-child(2) figcaption {
+        top: 20%;
+    }
+
+#caroussel figure:nth-child(3) figcaption {
+        top: 25%;
+    }
+
+#caroussel figure:nth-child(4) figcaption {
+        top: 20%;
+    }
+
+#caroussel figure:nth-child(5) figcaption {
+        top: 20%;
+    }
+
+#diaporama button {
+    position: absolute;
+    top: 45%; /* Placement des boutons au centre du diaporama */
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8); /* Couleur de fond des boutons */
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
     cursor: pointer;
 }
 
-.play_controls {
-    bottom:10px;
-    left:50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 3em;
-    cursor: pointer;
+#bouttonDroit {
+    right: -9%; /* Placement du bouton droit */
 }
 
-#nav-droite {
-    right: 20px;
+#bouttonGauche {
+    left: -9%; /* Placement du bouton gauche */
 }
 
-#nav-gauche {
-    left: 20px;
-}
-
-.elements {
-    transition: 0.7s;
-}
-
-
-.element > img {
-    max-width: 100%;
-    border-radius: 15px;
-    width:100%;
-    object-fit:cover;
-}
-
-.caption {
-    top: 50%;
+#pause {
+    bottom: 10px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: whitesmoke;
-    opacity: 0.9;
-    border-radius: 15px;
+    transform: translateX(-50%);
+    color: black;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#play {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.chevron::before {
+    content: "";
+    position: relative;
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0; /* 2 Bordures pour le chevron */
+    top: 0.15em;
+}
+
+.chevron.right:before {
+    left: -0.15em;
+    transform: rotate(45deg); /*Rotation de 45 degré*/
+}
+
+.chevron.left:before {
+    left: 0.25em;
+    transform: rotate(-135deg); /* Rotation de -135 degré */
 }
 
 /*Carte et panneau d'information*/
@@ -124,7 +200,7 @@ h2 {
     border-radius: 10px;
 }
 
-#map-container{
+#map-container {
     display: flex;
 }
 
@@ -135,22 +211,21 @@ h2 {
     border-radius: 10px;
 }
 
-.station-header{
+.station-header {
     font-size: 2em;
 }
 
-h4{
+h4 {
     font-size: 1.2em;
-
 }
 
-#lastname{
+#lastname {
     padding: 10px;
     text-align: center;
     border: 1px solid black;
 }
 
-#firstname{
+#firstname {
     padding: 10px;
     text-align: center;
     border: 1px solid black;
@@ -168,7 +243,7 @@ input[type="submit"] {
 
 /*Canvas*/
 
-#canvas{
+#canvas {
     background-color: white;
     margin-top: 10px;
     border-radius: 10px;
@@ -204,7 +279,7 @@ footer {
 }
 
 
-#logo_footer{
+#logo_footer {
     height: 100px;
 }
 
@@ -214,28 +289,29 @@ footer {
 #maCarte {
     overflow: hidden;
     padding-bottom: 56.25%;
-    position: relative; 
-    height:0;
+    position: relative;
+    height: 0;
 }
 
-    #maCarte {
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-    }
+#maCarte {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
 
 
 
 @media (min-width: 220px) {
-    h1{
+    h1 {
         font-size: 1em;
     }
 
-    h2{
+    h2 {
         font-size: 1em;
     }
-    h3{
+
+    h3 {
         font-size: 1.5em;
     }
 
@@ -243,11 +319,11 @@ footer {
         font-size: 2em;
     }
 
-    #nav-gauche{
+    #nav-gauche {
         left: 3px;
     }
 
-    #nav-droite{
+    #nav-droite {
         right: 3px;
     }
 
@@ -262,7 +338,7 @@ footer {
         font-size: 10px;
     }
 
-    .diapo{
+    #diapo {
         height: 300px;
     }
 
@@ -270,15 +346,13 @@ footer {
         margin: auto;
     }
 
-    #clearcanvas{
+    #clearcanvas {
         font-size: 10px;
     }
 
     #submitbutton {
         font-size: 10px;
     }
-
-
 }
 
 @media (min-width: 320px) {
@@ -286,7 +360,7 @@ footer {
         font-size: 1.5em;
     }
 
-   h2 {
+    h2 {
         font-size: 1.5em;
     }
 
@@ -315,11 +389,10 @@ footer {
     #clearcanvas {
         font-size: 17px;
     }
+
     #submitbutton {
         font-size: 17px;
     }
-
-
 }
 
 @media (min-width: 576px) {
@@ -355,7 +428,6 @@ footer {
     #submitbutton {
         font-size: 17px;
     }
-
 }
 
 @media (min-width: 768px) {
@@ -367,13 +439,14 @@ footer {
         font-size: 2.5em;
     }
 
-    h3{
+    h3 {
         font-size: 2em;
     }
 
     .caption {
         font-size: 17px;
     }
+
     .nav-link {
         visibility: initial;
     }
@@ -385,7 +458,6 @@ footer {
     #submitbutton {
         font-size: 15px;
     }
-
 }
 
 @media (min-width: 1000px) {
@@ -397,5 +469,4 @@ footer {
     #submitbutton {
         font-size: 17px;
     }
-
 }

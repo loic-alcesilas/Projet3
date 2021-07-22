@@ -47,77 +47,59 @@
                 </p>
                 <a class="btn btn-outline-secondary" href="#diapo">Découvrir le service</a>
             </div>
-            <div class="diapo position-relative col-12 p-0" id="diapo">
-                <h2 class="mb-3 text-center col-12">Comment ça marche ?</h2>
-                <div class="elements d-flex col-12 p-0 h-100">
-                    <!-- Première diapo -->
-                    <div class="element position-relative col-12 p-0 h-100">
-                        <img class="col-12 p-0 h-100"
-                             src="assets/img/fond.png"
-                             alt="slide1" />
-                        <div class="caption p-3 text-center position-absolute col-6 p-0">
-                            <h3>
-                                <i class="fas fa-map-marker-alt"></i> Choix de la station
-                            </h3>
-                            <p>
-                                Veuillez choisir votre station sur la carte de Rouen si
-                                dessous
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Deuxième diapo -->
-                    <div class="element position-relative col-12 p-0 h-100">
-                        <img class="col-12 p-0 h-100"
-                             src="assets/img/fond.png"
-                             alt="slide2" />
-                        <div class="caption p-3 text-center position-absolute col-6">
-                            <h3>
-                                <i class="fas fa-info-circle"></i> Informations de la station
-                            </h3>
-                            <p>
-                                Aprés avoir cliqué sur un marqueur vous verrez les
-                                informations concernant la station.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Troisième diapo-->
-                    <div class="element position-relative col-12 p-0 h-100">
-                        <img class="col-12 p-0 h-100"
-                             src="assets/img/fond.png"
-                             alt="slide3" />
-                        <div class="caption p-3 text-center position-absolute col-6">
-                            <h3>
-                                <i class="fas fa-address-book"></i> Remplir le formulaire
-                            </h3>
-                            <p>
-                                Aprés avoir choisit votre station veuillez remplir votre nom
-                                ,prénom et signez dans le cadre blanc pour réserver !
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Quatrième diapo-->
-                    <div class="element position-relative col-12 p-0 h-100">
-                        <img class="col-12 p-0 h-100"
-                             src="assets/img/fond.png"
-                             alt="slide4" />
-                        <div class="caption p-3 text-center position-absolute col-6">
-                            <h3>
-                                <i class="fas fa-stopwatch-20"></i> Votre vélo est réservé
-                            </h3>
-                            <p>
-                                Aprés avoir cliquez sur le button, votre vélo est donc
-                                disponible pendant 20min.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <i id="nav-gauche" class="position-absolute fas fa-chevron-left"></i>
-                <i id="nav-droite" class="position-absolute fas fa-chevron-right"></i>
-                <i id="pause"
-                   class="position-absolute play_controls far fa-pause-circle"></i>
-                <i id="play"
-                   class="position-absolute d-none play_controls far fa-play-circle"></i>
-            </div>
+            <!-- Explication fonctionnement : slider -->
+            <div id="diaporama" class="position-relative p-0">
+                <button id="bouttonGauche"><span class="chevron left"></span></button> <!-- Bouton de navigation droite -->
+                <!-- caroussel -->
+                <div id="caroussel">
+                    <!-- 1ére image -->
+                    <figure class="item">
+                        <img src="assets/img/slide.jpg">
+                        <figcaption>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Veuillez choisir votre station sur la carte de Rouen si
+                            dessous
+                        </figcaption>
+                    </figure> <!-- fin image 1 -->
+                    <!-- 2éme image -->
+                    <figure class="item">
+                        <img src="assets/img/slide.jpg">
+
+                        <figcaption>
+                            <i class="fas fa-info-circle"></i>
+                            Aprés avoir cliqué sur un marqueur vous verrez les
+                            informations concernant la station.
+                        </figcaption>
+                    </figure> <!-- fin image 2 -->
+                    <!-- 3éme image -->
+                    <figure class="item">
+                        <img src="assets/img/slide.jpg">
+                        <figcaption>
+                            <i class="fas fa-address-book"></i>
+                            Veuillez remplir le formulaire et signez !
+                        </figcaption>
+                    </figure> <!-- fin image 3 -->
+                    <!-- 4éme image -->
+                    <figure class="item">
+                        <img src="assets/img/slide.jpg">
+                        <figcaption>
+                            <i class="fas fa-stopwatch-20"></i>
+                            Votre vélo est réservé pour une durée de 20 minutes
+                        </figcaption>
+                    </figure> <!-- fin image 4 -->
+                    <!-- 5éme image -->
+                    <figure class="item">
+                        <img src="assets/img/slide.jpg">
+                        <figcaption>
+                            <i class="fas fa-biking"></i>
+                            Go Vélo vous souhaite une excellente ballade !
+                        </figcaption>
+                    </figure> <!-- fin image  -->
+                </div> <!-- fin caroussel -->
+                <button id="bouttonDroit"><span class="chevron right"></span></button> <!-- Bouton de navigation gauche -->
+                <i id="pause" class="position-absolute play_controls far fa-pause-circle"></i>
+                <i id="play" class="position-absolute d-none play_controls far fa-play-circle"></i>
+            </div> <!-- fin Diaporama -->
         </div>
         <div class="row mt-4 align-items-center">
             <h2 class="text-center col-12">Louer un vélo !</h2>
@@ -149,9 +131,8 @@
                                        placeholder="Nom"
                                        minlength="1"
                                        maxlength="14"
-                                       size="14" 
-                                       onkeydown="if(event.keyCode==32) return false;"
-                                       />
+                                       size="14"
+                                       onkeydown="if(event.keyCode==32) return false;" />
                             </div>
                             <label for="firstname">Votre prénom</label>
                             <br />
@@ -161,8 +142,8 @@
                                        placeholder="Prénom"
                                        minlength="1"
                                        maxlength="14"
-                                       size="14" 
-                                       onkeydown="if(event.keyCode==32) return false;"/>
+                                       size="14"
+                                       onkeydown="if(event.keyCode==32) return false;" />
                             </div>
                             <input type="hidden" id="number" />
                             <canvas id="canvas"></canvas>

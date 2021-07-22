@@ -1,76 +1,66 @@
-// Variables d'ensemble
-let compteur = 0;
-let timer;
-let elements;
-let slides;
-let slideWidth;
+// Objet diaporama
+var Diaporama = {
+    items: document.getElementsByClassName("item"), // Attribut de sélection des figures
+    imageNum: 0, // Attribut qui permet de parcourir les images
 
 
-window.onload = () => {
-    const diapo = document.querySelector(".diapo")
-    elements = document.querySelector(".elements");
-    slides = Array.from(elements.children);
+    // Méthode qui récupére les touches du clavier et actionne le diaporama en fonction de la touche
+    infosClavier: function (e) {
+        if (e.keyCode === 39) {
+            document.addEventListener("keydown", this.suivant()); // Appui sur la touche =>
+        } else if (e.keyCode === 37) {
+            document.addEventListener("keydown", this.precedent()); // Appui sur la touche <=
+        }
+    },
 
-    //On calcule la largeur visible du diaporama
-    slideWidth = diapo.getBoundingClientRect().width;
+    // Méthode qui fait fonctionner le diaporama en avant
+    suivant: function () {
+        this.items[this.imageNum].style.opacity = "0"; // Fait disparaître l'image active
+        if (this.imageNum === 4) { // Si le diaporama est à la dernière image
+            this.imageNum = 0; // On repasse l'attribut à 0 pour faire réapparaître la première image
+        } else { // Sinon on passe à l'image suivante
+            this.imageNum++; // En augmentant de 1 l'attribut
+        }
+        this.items[this.imageNum].style.opacity = "1"; // Fait apparaître l'image suivante
+        
+    },
 
-    let next = document.querySelector("#nav-droite");
-    let prev = document.querySelector("#nav-gauche");
-    let pause = document.querySelector("#pause");
-    let play = document.querySelector("#play");
+    // Méthode qui fait fonctionner le diaporama en arrière
+    precedent: function () {
+        this.items[this.imageNum].style.opacity = "0"; // Fait disparaître l'image active
+        if (this.imageNum === 0) { // Si le diaporama est à la première image
+            this.imageNum = 4; // On passe l'attribut à 4 pour faire réapparaître l'image précédente
+        } else { // Sinon on passe à l'image précédente
+            this.imageNum--; // En diminuant de 1 la valeur de l'attribut
+        }
+        this.items[this.imageNum].style.opacity = "1"; // Fait apparaître l'image précédente
+    },
 
-    next.addEventListener("click", slideNext);
-    prev.addEventListener("click", slidePrev);
-    pause.addEventListener("click", slidePause);
-    play.addEventListener("click", slidePlay);
+    pause: function () {
+        document.querySelector('#pause').classList.add("d-none");
+        document.querySelector('#play').classList.remove("d-none");
+        clearInterval(timer);
+    },
 
-    // RESPONSIVE 
-    window.addEventListener("resize", () => {
-        slideWidth = diapo.getBoundingClientRect().width;
-        slideNext();
-    })   
+    play: function () {
+        document.querySelector('#play').classList.add("d-none");
+        document.querySelector('#pause').classList.remove("d-none");
+        timer = setInterval(Diaporama.suivant.bind(Diaporama), 5000);
 
-}
-
-timer = setInterval(slideNext, 5000)
-
-document.addEventListener("keydown", function (fleche) {
-    if (fleche.keyCode === 37) {
-        slidePrev();
     }
-    else if (fleche.keyCode === 39) {
-        slideNext();
-    }
-});
 
-function slideNext() {
-    compteur++;
-    if(compteur == slides.length) {
-        compteur = 0;
-    }
-    // Permet de deplacer horizontalement le diaporama
-    let decal = -slideWidth * compteur;
-    elements.style.transform = `translateX(${decal}px)`;
 }
+timer = setInterval(Diaporama.suivant.bind(Diaporama), 5000);
 
-function slidePrev() {
-    compteur--;
-    if (compteur < 0) {;
-        compteur = slides.length - 1;
-    };
-    let decal = -slideWidth * compteur;
-    elements.style.transform = `translateX(${decal}px)`;
-}
+// Le bouton droit appel la méthode "suivant" du diaporama
+document.getElementById("bouttonDroit").addEventListener("click", Diaporama.suivant.bind(Diaporama));
+//bouton pause pour stop le timer qui appel la méthode pause
+document.getElementById("pause").addEventListener("click", Diaporama.pause.bind(Diaporama));
+//bouton play pour redemarrer le timer qui appel la méthode play
+document.getElementById("play").addEventListener("click", Diaporama.play.bind(Diaporama));
 
-function slidePause() {
-    document.querySelector('#pause').classList.add("d-none");
-    document.querySelector('#play').classList.remove("d-none");
-    clearInterval(timer);
-}
+// Le bouton gauche appel la méthode "précédent" du diaporama
+document.getElementById("bouttonGauche").addEventListener("click", Diaporama.precedent.bind(Diaporama));
 
-function slidePlay() {
-    document.querySelector('#play').classList.add("d-none");
-    document.querySelector('#pause').classList.remove("d-none");
-    timer = setInterval(slideNext, 5000)
-}
-
+// Gestion de l'appui et du relâchement d'une touche du clavier
+document.addEventListener("keydown", Diaporama.infosClavier.bind(Diaporama));
